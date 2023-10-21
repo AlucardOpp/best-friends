@@ -1,0 +1,30 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Украшения — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = "header--no-bd-md"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "jewelry"
+  -
+    const collectionInfo = {
+      type: "Наборы",
+      title: "Наборы бриллиантов",
+      description: "Текст про наборы бриллиантов. Вдохновились эстетикой грубых форм и создали смелые непривычные формы украшений",
+      image: "3",
+      href: "#",
+    }
+
+block main
+  main
+    +product-jewelry
+    +catalog-goods(jewelryGoods, "Присмотритесь").desktop-only
+    +slider-products(jewelryGoods2, "Присмотритесь").mobile-only
+    +collection(collectionInfo).collection--catalog
+    +slider-products(products)
+
+block modals
+  +modal("modal--sizes")(data-modal="sizes")
+    +modal-sizes()

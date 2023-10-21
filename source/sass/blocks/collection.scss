@@ -1,0 +1,147 @@
+.collection {
+  min-height: 800px;
+  max-height: calc(100vh - var(--headerHeight));
+  position: relative;
+  display: block;
+
+  @include hover {
+    &:hover {
+      & .collection__button {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @media (min-width: 1361px) {
+    height: 41.67vw;
+  }
+
+  &--catalog {
+    & .collection__title {
+      margin-bottom: 20px;
+      font-size: 75px;
+      line-height: 77.5%;
+      letter-spacing: 0.01em;
+
+      @include vp-1023 {
+        font-size: 36px;
+        line-height: 103%;
+        letter-spacing: -0.04em;
+        margin-bottom: 18px;
+      }
+    }
+
+    & .collection__type {
+      margin-bottom: 20px;
+
+      @include vp-1023 {
+        margin-bottom: 6px;
+        margin-top: auto;
+      }
+    }
+
+    & .collection__text-container {
+      max-width: 306px;
+    }
+  }
+
+  @include vp-1023 {
+    min-height: 570px;
+  }
+
+  & .container {
+    padding-top: 14px;
+    padding-bottom: 20px;
+    position: relative;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    max-height: inherit;
+
+    @media (min-width: 1361px) {
+      height: 41.67vw;
+    }
+
+    @include vp-1023 {
+      padding-top: 14px;
+      padding-bottom: 17px;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 640px;
+    margin: auto;
+
+    @include vp-1023 {
+      max-width: 209px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 26px;
+
+    @include vp-1023 {
+      margin-bottom: 14px;
+    }
+
+    & span {
+      display: none;
+
+      @include vp-1023 {
+        display: inline;
+        vertical-align: baseline;
+      }
+    }
+  }
+
+  &__type {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: $color-default-white;
+    margin: 0 0 26px;
+
+    @include vp-1023 {
+      line-height: 119%;
+      margin-bottom: 7px;
+    }
+  }
+
+  &__description {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    max-width: 218px;
+    color: $color-default-white;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 109.5%;
+
+    @include vp-1023 {
+      font-size: 14px;
+      line-height: 119%;
+      left: 17px;
+      bottom: 18px;
+    }
+  }
+
+  &__background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

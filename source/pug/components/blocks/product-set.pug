@@ -1,0 +1,42 @@
+mixin product-set
+  .product
+    .product__imgs
+      .product__img-main
+        +picture('content/sets', 'background-2', 'jpg', 906, 876)
+      +ring-size-slider().desktop-only
+
+    .product__content
+      .product__info
+        +breadcrumbs(['Наборы бриллиантов']).product__breadcrumbs
+        h1.product__title.title-medium Коллекция Bruno
+        p.product__text.mobile-only Симметрия и полировка обеспечивали великолепную игру света.
+        +custom-select({optionsList: [{text: "3.5 карата", value: "3.5", isActive: true}, {text: "2.04 карат", value: "2.04"}, {text: "2.01 карат", value: "2.01"}, {text: "1.04 карат", value: "1.04"}]})(data-select, data-validate-type="select", data-name="price", data-id="price").custom-select.product__select.product__select--2
+        p.product__text.desktop-only Симметрия и полировка обеспечивали великолепную игру света.
+
+
+      .product__btns
+        a(href="#").product__cart.btn 620 000 ₽
+        +btn-favorite().product__favorite
+      .product__features
+        p.product__feature-title.title-smallest Доставим или покажем в&nbsp;салоне
+        .product__feature-wrap
+          .product__feature
+            .product__feature-icon
+              +icon("icon-stars-white", 57, 40)
+            p.product__feature-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте.
+          .product__feature
+            .product__feature-icon
+              +icon("icon-hand", 69, 40)
+            p.product__feature-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте. Только правильная огранка может полностью раскрыть красоту бриллианта.
+      .product__card
+        p.product__card-title Цвет бриллианта
+        +color-block(false)
+      .product__card
+        p.product__card-title Чистота бриллианта
+        +purity-block(false)
+      div(data-accordion="parent")
+        +accordion({text: "Рекомендации по уходу"}).product__accordion
+          p.product__accordion-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut fugiat provident perspiciatis quia, earum harum expedita sint rem eaque.
+        +accordion({text: "А можно вернуть?"}).product__accordion
+          p.product__accordion-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut fugiat provident perspiciatis quia, earum harum expedita sint rem eaque.
+      +ring-size-slider().mobile-only

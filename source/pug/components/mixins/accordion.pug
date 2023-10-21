@@ -1,0 +1,9 @@
+//- data-accordion="parent" Устанавливается на родителе
+mixin accordion(data)
+  .accordion(data-accordion="element")&attributes(attributes)
+    button(type="button", data-accordion="button").accordion__btn
+      span.accordion__icon
+      span.accordion__btn-text.title-smallest!= data.text
+    .accordion__content(data-accordion="content")
+      .accordion__inner
+        block

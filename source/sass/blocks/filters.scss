@@ -1,0 +1,236 @@
+.filters {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $color-default-black;
+
+  @include vp-1023 {
+    padding-top: 9px;
+    padding-bottom: 10px;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    @include vp-1023 {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__title {
+    width: 100%;
+
+    @include vp-1023 {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__select {
+    .custom-select__wrap {
+      @include vp-1023 {
+        position: static;
+      }
+    }
+
+    .custom-select__list-container {
+      @include vp-1023 {
+        width: auto;
+
+        position: absolute;
+        top: calc(100% + 9px);
+        bottom: auto;
+        left: 0;
+        right: 0;
+        border-top: none;
+        border-bottom: 1px solid $color-default-black;
+        transform: translateY(-20px);
+      }
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @include vp-1023 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 3px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      color: inherit;
+    }
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 30px;
+
+    @include vp-1023 {
+      display: flex;
+      visibility: hidden;
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+      background-color: $color-default-white;
+      margin-top: 0;
+      padding: 10px 17px 20px;
+      border-bottom: 1px solid $color-default-black;
+
+      position: absolute;
+      top: calc(100% + 11px);
+      left: 0;
+      z-index: 2;
+      visibility: hidden;
+      transition: transform $trans-default, visibility $trans-default, opacity $trans-default;
+      transform: translateY(-20px);
+      opacity: 0;
+
+      .active & {
+        visibility: visible;
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__filter {
+    position: relative;
+
+    &:not(.open) {
+      [data-tabs=element].is-active {
+        visibility: hidden;
+      }
+    }
+
+    [data-tabs=element] {
+      transition: none;
+    }
+
+    @include vp-1023 {
+      margin-bottom: 27px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__filter-title {
+    margin: 0;
+    font-family: $ff-tt-travels-next;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+
+    @include vp-1023 {
+      font-size: 17px;
+      line-height: 99%;
+    }
+  }
+
+  &__title-warp {
+    display: flex;
+    margin-bottom: 9px;
+
+    @include vp-1023 {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__tooltip {
+    margin-left: 9px;
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 77.5%;
+    letter-spacing: -0.04em;
+
+    @include vp-1023 {
+      margin-left: 8px;
+      padding: 4px 9px;
+      font-size: 10.3235px;
+      line-height: 77.5%;
+    }
+  }
+
+  &__btns {
+    display: none;
+
+    @include vp-1023 {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -20px;
+    }
+  }
+
+  &__filter-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    margin-left: 20px;
+    padding: 0;
+    color: inherit;
+
+    font-family: $ff-montserat;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  &__btn-icon {
+    width: 21px;
+    height: 16px;
+    padding: 4px 6px;
+    border: 1px solid $color-default-black;
+    border-radius: 14px;
+    margin-left: 8px;
+  }
+
+  &__tooltip-card {
+    width: 100%;
+    max-width: 386px;
+    background-color: $color-default-white;
+    box-shadow: 0px 8px 113px rgba($color-default-black, 0.2);
+    border-radius: 20px;
+
+    position: absolute;
+    top: calc(100% - 14px);
+    left: -5px;
+    z-index: 2;
+    visibility: hidden;
+    transition: transform $trans-default, visibility $trans-default, opacity $trans-default;
+    transform: translateY(30px);
+    opacity: 0;
+
+    @include vp-1279 {
+    }
+
+    @include vp-1023 {
+      border-radius: 0;
+      width: 100%;
+      max-width: none;
+      padding-right: 30px;
+
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      top: auto;
+    }
+
+    .open & {
+      visibility: visible;
+      transform: none;
+      opacity: 1;
+    }
+  }
+}

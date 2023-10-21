@@ -1,0 +1,41 @@
+mixin diamonds-filters()
+  .filters
+    form(action="get")
+      .container.filters__container
+        .filters__top
+          h1.filters__title.title-medium!="Бриллианты"
+          +custom-select({optionsList: [{text: "Сначала подешевле", value: "price-cheaper", isActive: true}, {text: "Сначала подороже", value: "price-expensive"}]})(data-select, data-validate-type="select", data-name="price", data-id="price").custom-select.filters__select
+          button.filters__btn(type="button" aria-label="Открыть фильтры")
+            +icon("icon-filters", 20, 21)
+        .filters__wrap
+          .filters__filter
+            .filters__title-warp
+              p.filters__filter-title Размер
+              button(type="button", aria-label="Размер подробнее",data-open-modal="sizes").btn.btn--white.filters__tooltip ?
+
+            .filters__slider.range-slider(data-range-slider="size", data-slider-min="0", data-slider-max="20", data-slider-step="0.5", data-slider-start-min="0", data-slider-start-max="20")
+              input(type="text", name="size-start", data-range-start-input).range-slider__input
+              input(type="text", name="size-end", data-range-end-input).range-slider__input
+
+          .filters__filter
+            .filters__title-warp
+              p.filters__filter-title Цвет
+              button(type="button", aria-label="Цвет подробнее", data-tooltip-btn).btn.btn--white.filters__tooltip ?
+            .filters__slider.range-slider(data-range-slider="color", data-slider-start-min="0", data-slider-start-max="10")
+              input(type="text", name="color-start", data-range-start-input).range-slider__input
+              input(type="text", name="color-end", data-range-end-input).range-slider__input
+            +color-block.filters__tooltip-card
+
+          .filters__filter
+            .filters__title-warp
+              p.filters__filter-title Чистота
+              button(type="button", aria-label="Чистота подробнее", data-tooltip-btn).btn.btn--white.filters__tooltip ?
+            .filters__slider.range-slider(data-range-slider="purity", data-slider-start-min="0", data-slider-start-max="10")
+              input(type="text", name="purity-start", data-range-start-input).range-slider__input
+              input(type="text", name="purity-end", data-range-end-input).range-slider__input
+            +purity-block.filters__tooltip-card
+
+          .filters__btns
+            button(type="submit").filters__filter-btn Применить
+            button(type="reset", data-reset-sliders).filters__filter-btn Сбросить
+              +icon("icon-close", 7, 7).filters__btn-icon

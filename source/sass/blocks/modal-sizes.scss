@@ -1,0 +1,140 @@
+.modal-sizes {
+  @include vp-1023 {
+    padding-bottom: 15px;
+  }
+
+  &__top {
+    display: flex;
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding: 30px;
+    padding-right: 0;
+    margin-bottom: 7px;
+
+    @include vp-1023 {
+      padding: 21px 30px;
+      padding-right: 0;
+      margin-bottom: 2px;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 50%;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: -37px;
+      right: -42px;
+      width: 267px;
+      height: auto;
+      max-width: none;
+
+      @include vp-1023 {
+        top: 0;
+        right: 0;
+        width: 180px;
+      }
+    }
+  }
+
+  &__title {
+    width: min-content;
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 110%;
+
+    @include vp-1023 {
+      margin-bottom: 13px;
+      font-size: 22px;
+      line-height: 95%;
+    }
+
+    @include vp-767 {
+      font-size: 22px;
+      line-height: 95%;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-1023 {
+      line-height: 119%;
+    }
+  }
+
+  &__size {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 30px;
+    border-bottom: 1px solid $color-solitude;
+
+    @include vp-1023 {
+      padding: 14px 30px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--header {
+      padding: 7px 30px;
+
+      @include vp-1023 {
+        padding: 8px 30px;
+      }
+
+      .modal-sizes__size-left {
+        font-size: 15px;
+        line-height: 109.5%;
+
+        @include vp-1023 {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 119%;
+          letter-spacing: normal;
+        }
+      }
+
+      .modal-sizes__size-right {
+        font-size: 14px;
+        line-height: 140%;
+        transform: none;
+
+        @include vp-1023 {
+          line-height: 109.5%;
+        }
+      }
+    }
+  }
+
+  &__size-left {
+    font-size: 23px;
+    line-height: 100%;
+
+    @include vp-1023 {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 77.5%;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  &__size-right {
+    font-size: 15px;
+    line-height: 109.5%;
+    transform: translateY(2px);
+
+    @include vp-1023 {
+      font-size: 14px;
+      line-height: 119%;
+    }
+  }
+}

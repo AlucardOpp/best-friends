@@ -1,0 +1,30 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Бриллиант — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = "header--no-bd-md"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "diamond"
+  -
+    const collectionInfo = {
+      type: "Наборы",
+      title: "Наборы бриллиантов",
+      description: "Текст про наборы бриллиантов. Вдохновились эстетикой грубых форм и создали смелые непривычные формы украшений",
+      image: "3",
+      href: "#",
+    }
+
+block main
+  main
+    +product-diamond
+    +catalog-goods(catalogDiamonds, "Похожие").desktop-only.goods--diamonds
+    +slider-products(catalogDiamonds3, "Похожие").mobile-only
+    +kaleido-block({title: "Мастера ограняют бриллианты в&nbsp;течение недели", text: ""})
+    +slider-products(products)
+
+block modals
+  +modal("modal--sizes")(data-modal="sizes")
+    +modal-sizes()

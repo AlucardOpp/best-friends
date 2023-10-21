@@ -1,0 +1,27 @@
+mixin orders(data)
+  section.orders
+    h1.orders__title.title-medium!="Заказы"
+    ul.orders__list
+      each item in data
+        li.orders__item
+          ul.orders__goods
+            each good in item.goods
+              li.orders__good
+                +card-item(good).card-item--orders
+          .orders__info
+            .orders__container.container
+              .orders__title-container
+                span.orders__number.title-very-tiny № #[span!=item.number]
+                span.orders__status(class=(item.status === "Обрабатывается" ? "orders__status--processing" : null), class=(item.status === "Доставлен" ? "orders__status--delivered" : null))!=item.status
+              ul.orders__info-list
+                li.orders__info-item
+                  span.orders__info-title!="Сумма заказа"
+                  span.orders__info-description #{item.totalSum} ₽
+                li.orders__info-item
+                  span.orders__info-title!="Оплата"
+                  span.orders__info-description!=item.payment
+                li.orders__info-item
+                  span.orders__info-title!="Доставка"
+                  span.orders__info-description!=item.delivery
+              if (item.status === "Обрабатывается")
+                button.orders__button.btn.btn--whitey(type="button" aria-label="Отменить заказ", data-open-modal="cancel-order")!="Отменить"

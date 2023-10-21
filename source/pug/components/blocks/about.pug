@@ -1,0 +1,78 @@
+-
+  const aboutData1 = {
+    img: "about-1",
+    title: "Искусство как Любовь",
+    text: "Русское ювелирное искусство как воплощение ваших чувств",
+  }
+  const aboutData2 = {
+    img: "about-3",
+    title: "Дарить самое ценное",
+    text: "Русские бриллианты. Триста лет богатой истории",
+  }
+  const aboutData3 = {
+    img: "about-1",
+    title: "ELIA’S. Новое имя роскоши и красоты",
+    text: "Бриллианты и украшения. Безупречность, созданная в России. Восторг и Вдохновение",
+  }
+  const aboutData4 = {
+    img: "about-3",
+    title: "Утонченность. Нежность. Стиль.",
+    text: "Изящная простота линий в украшениях ELIA’S подчеркивает вашу красоту, привлекательность и женственность. ",
+  }
+  const aboutData5 = {
+    img: "about-3",
+    title: "Русский взгляд",
+    text: "ELIA’S представляет новый мир русских бриллиантов ",
+    reverse: true,
+  }
+  const aboutData6 = {
+    img: "about-3",
+    title: "Илья Клюев",
+    text: "«Двадцать пять лет я шел к моей мечте – вернуть русских красавиц в объятия русских бриллиантов. Вы созданы друг для друга!» ",
+    reverse: true,
+    text2: "Основатель Ювелирного клуба CLUEV, создатель ELIA’S",
+  }
+  const aboutData7 = {
+    img: "about-5",
+    title: "Искусство творить Искусство",
+    text: "Виртуозная техника, ручная работа, наследие великих предшественников ",
+    reverse: true,
+  }
+  const aboutData8 = {
+    img: "about-2",
+    title: "Искренние цены ",
+    text: "Между ELIA’S и вами нет посредников. Это отражено в стоимости камней и украшений. Вы будете приятно удивлены.",
+    reverse: true,
+  }
+  const aboutData9 = {
+    img: "about-3",
+    title: "Надежная Инвестиция",
+    text: "Первый в мире сервис с гарантированной обратной продажей ранее приобретенных бриллиантов.",
+    reverse: true,
+    features: true,
+  }
+  const aboutData10 = {
+    img: "about-1",
+    title: "Встреча с ELIA’S ",
+    text: "Мы можем приехать к вам или встретиться в одном из наших бутиков. Скоро открытие. Станьте одним из первых клиентов ELIA’S",
+  }
+
+mixin about()
+  .about
+    .about__title-wrap
+      .container
+        h2.title-medium О нас
+    +about-section(aboutData1)
+    +about-section(aboutData2)
+    +about-section(aboutData3)
+    +about-section(aboutData4)
+    +kaleido-block({title: "Ювелиры ELIA’S ", text: "С нами накопленный столетиями опыт русских мастеров"})
+    +about-section(aboutData5)
+    +about-section(aboutData6)
+    +about-section(aboutData7)
+    +kaleido-block({title: "Удобство выбора ", text: "Коллекции украшений, индивидуальный заказ, бриллианты от 0,3 карата до 10 карат, подарочные наборы из бриллиантов"})
+    +about-section(aboutData8)
+    +about-section(aboutData9)
+    +quality
+    +kaleido-block({title: "Вечная гарантия на украшения ELIA’S", text: "Дизайн, моделлинг и изготовление происходят в собственных мастерских, что позволяет соблюдать высочайшие стандарты качества. Условием предоставления гарантии является предоставление украшений на ежегодное бесплатное сервисное обслуживание."})
+    +about-section(aboutData10)

@@ -1,0 +1,160 @@
+.card-block {
+  padding: 20px;
+
+  @include vp-1023 {
+    padding: 17px;
+  }
+
+  &__wrap {
+    display: flex;
+  }
+
+  &__img {
+    flex-grow: 1;
+    width: 107px;
+    height: 107px;
+    padding: 6px;
+
+    @include vp-1023 {
+      width: 91px;
+      height: 91px;
+      padding: 12px 17px 12px 12px;
+    }
+
+    // .card-block--purity & {
+    //   padding: 14px;
+
+    //   @include vp-1023 {
+    //     height: 71px;
+    //     padding: 7px;
+    //     padding-right: 37px;
+    //   }
+    // }
+
+    svg,
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      @include vp-1023 {
+        top: 12px;
+        left: 12px;
+        width: calc(100% - 12px - 17px);
+        height: calc(100% - 12px * 2);
+      }
+    }
+
+    svg {
+      fill: none;
+    }
+  }
+
+  &__content {
+    flex-shrink: 0;
+    max-width: 213px;
+    width: 61.6%;
+
+    @include vp-1023 {
+      max-width: none;
+      width: 70.6%;
+    }
+
+    // .card-block--purity & {
+    //   @include vp-1023 {
+    //     width: 63.6%;
+    //   }
+    // }
+  }
+
+  &__title {
+    display: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    font-family: $ff-tt-travels-next;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 99%;
+    letter-spacing: -0.04em;
+
+    @include vp-1023 {
+      display: block;
+    }
+  }
+
+  &__close {
+    display: none;
+    width: 17px;
+    height: 17px;
+
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    @include vp-1023 {
+      display: block;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -5px;
+
+    // .card-block--purity & {
+    //   padding-right: 30px;
+    // }
+  }
+
+  &__btn {
+    min-width: 39px;
+    padding: 11px;
+    border: 1px solid transparent;
+    background-color: $color-default-white;
+    border-radius: 26px;
+    margin-top: 5px;
+
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 77.5%;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: $color-default-black;
+
+    transition: border-color $trans-default, background-color $trans-default;
+    cursor: pointer;
+
+    @include hover {
+      &:hover {
+        background-color: $color-solitude;
+      }
+    }
+
+    &.is-active {
+      border-color: $color-default-black;
+    }
+  }
+
+  &__text {
+    margin-bottom: 0;
+    margin-top: 14px;
+    padding-left: 13px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-1023 {
+      // padding-left: 0;
+      margin-top: 7px;
+      line-height: 119%;
+    }
+  }
+}

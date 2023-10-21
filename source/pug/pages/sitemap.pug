@@ -1,0 +1,114 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Список страниц"
+
+block main
+  style.
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    a {
+      color: rgb(10, 10, 175);
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 7px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      ol {
+        padding-left: 20px;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+    }
+
+  -
+    const pages = [
+      {
+        name: "UI-kit — ui-kit.html",
+        src: "ui-kit.html"
+      },
+      {
+        name: "Главная — index.html",
+        src: "index.html"
+      },
+      {
+        name: "О нас — about.html",
+        src: "about.html"
+      },
+      {
+      name: "Каталог - Бриллианты — catalog-diamonds.html",
+      src: "catalog-diamonds.html"
+      },
+      {
+      name: "Каталог - Украшения — catalog-jewelry.html",
+      src: "catalog-jewelry.html"
+      },
+      {
+      name: "Каталог - Наборы бриллиантов — catalog-sets.html",
+      src: "catalog-sets.html"
+      },
+      {
+      name: "Украшения — jewelry.html",
+      src: "jewelry.html"
+      },
+      {
+      name: "Бриллиант — diamond.html",
+      src: "diamond.html"
+      },
+      {
+      name: "Набор бриллиантов — set.html",
+      src: "set.html"
+      },
+      {
+      name: "Корзина — basket.html",
+      src: "basket.html"
+      },
+      {
+      name: "Корзина(Заказ оформлен) — basket-success.html",
+      src: "basket-success.html"
+      },
+      {
+        name: "Избранное — favorites.html",
+        src: "favorites.html"
+      },
+      {
+        name: "Личный кабинет - Заказы — personal-account-orders.html",
+        src: "personal-account-orders.html"
+      },
+    ]
+
+  main
+    .container
+      +icon("icon-logo", 68, 22)
+      h1 Список страниц
+      ol
+        each page in pages
+          li
+            a(href= page.src)= page.name

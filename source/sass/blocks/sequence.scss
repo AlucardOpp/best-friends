@@ -1,0 +1,40 @@
+.sequence {
+  width: 50%;
+
+  @include vp-767 {
+    width: 100%;
+  }
+
+  &__item {
+    position: relative;
+    cursor: grab;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+
+    object-fit: cover;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 0;
+
+    width: 100%;
+
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,263 @@
+.modal--authorize {
+  transform: none;
+  background: rgba(220, 220, 220, 0.1);
+  backdrop-filter: blur(40px);
+
+  .modal__overlay {
+    background: none;
+  }
+
+  .modal__content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 381px;
+    max-width: 100%;
+    height: 100%;
+    padding: 30px;
+
+    border-left: 1px solid $color-default-black;
+
+    transform: translateX(100%);
+    transition: transform $trans-default;
+
+    @include vp-359 {
+      padding: 20px 15px;
+    }
+  }
+
+  &.is-active {
+    .modal__content {
+      transform: translateX(0);
+    }
+  }
+
+  .modal__close-btn {
+    right: auto;
+    left: -1px;
+    top: 0;
+    width: 73px;
+    height: 73px;
+
+    background-color: $color-default-white;
+
+    transform: translateX(-100%);
+
+    @include vp-767 {
+      width: 26px;
+      height: 40px;
+      left: auto;
+      right: 19px;
+      top: 7px;
+
+      transform: translateX(0);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 64px;
+      height: 1px;
+      background-color: $color-default-black;
+
+      transform: translate3d(-50%, -50%, 0) rotate(45deg);
+
+      @include vp-767 {
+        width: 27px;
+      }
+    }
+
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+    }
+
+    svg {
+      display: none;
+    }
+  }
+}
+
+.modal-authorize {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  .title-medium {
+    margin-bottom: 30px;
+
+    @include vp-767 {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__form-code,
+  &__form-phone {
+    display: none;
+
+    &.is-active {
+      display: initial;
+    }
+  }
+
+  &__form-code.is-error {
+    .modal-authorize__code-error {
+      display: flex;
+    }
+
+    .modal-authorize__inputs input {
+      border-color: $color-sweet-pink;
+    }
+  }
+
+  &__input-text {
+    margin: 0;
+    margin-bottom: 21px;
+    margin-top: 5px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+
+    @include vp-767 {
+      margin-top: 1px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    @include vp-767 {
+      padding-top: 14px;
+      padding-bottom: 15px;
+
+      font-size: 17px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-start;
+    margin-top: auto;
+
+    svg {
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-top: 2px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-767 {
+      line-height: 119%;
+    }
+  }
+
+  &__send-phone {
+    margin: 0;
+    margin-bottom: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-767 {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+
+    @include vp-767 {
+      margin-bottom: 0;
+    }
+
+    label input {
+      width: 73px;
+      padding-top: 14px;
+      padding-bottom: 15px;
+
+      font-family: $ff-tt-travels-next;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 77.5%;
+      letter-spacing: -0.04em;
+      text-align: center;
+
+      @include vp-767 {
+        width: 67px;
+        padding-top: 14px;
+        padding-bottom: 15px;
+
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__code-error {
+    display: none;
+    margin-bottom: 10px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 109.5%;
+    color: $color-valencia;
+  }
+
+  &__timer {
+    margin-bottom: 21px;
+
+    @include vp-767 {
+      margin-bottom: 25px;
+    }
+
+    .modal-authorize__resend {
+      display: none;
+    }
+
+    &.is-active {
+      .modal-authorize__text-timer {
+        display: none;
+      }
+
+      .modal-authorize__resend {
+        display: initial;
+      }
+    }
+  }
+
+  &__text-timer {
+    margin: 0;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: $color-grey;
+  }
+
+  &__resend {
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+  }
+}

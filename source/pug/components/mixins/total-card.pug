@@ -1,0 +1,19 @@
+mixin total-card()
+  .total-card&attributes(attributes)
+    .total-card__heading
+      h2.title-very-tiny-2 Итого
+    ul.total-card__list
+      li.total-card__item
+        span.total-card__name Украшения
+        span.total-card__value 960&nbsp;000&nbsp;₽
+      li.total-card__item
+        span.total-card__name Доставка
+        span.total-card__value Бесплатно
+      li.total-card__item
+        span.total-card__name Скидка
+        span.total-card__value -30&nbsp;000&nbsp;₽ (30%)
+    .total-card__block-submit
+      .total-card__price-info
+        span.total-card__price-name Итого
+        span.total-card__price-value 930&nbsp;000&nbsp;₽
+      button.btn.total-card__sumbit(type="submit") Оформить

@@ -1,0 +1,128 @@
+.basket-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 61px);
+  position: relative;
+
+  @include vp-767 {
+    min-height: calc(100vh - 52px);
+  }
+
+  .title-medium-2 {
+    margin-bottom: 16px;
+    text-align: center;
+
+    @include vp-767 {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    background-color: $color-solitude;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 16px;
+    margin-bottom: 10px;
+
+    @include vp-767 {
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+
+    & > svg {
+      margin-bottom: 15px;
+
+      @include vp-767 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 16px;
+    max-width: 50%;
+
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-767 {
+      max-width: 90%;
+      margin-bottom: 8px;
+
+      line-height: 119%;
+    }
+  }
+
+  &__link {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+
+    border: 1px solid $color-default-black;
+
+    transition: color $trans-default, border-color $trans-default, background-color $trans-default;
+
+    svg {
+      margin-right: 11px;
+      fill: $color-solitude;
+      stroke: $color-default-black;
+
+      transition: fill $trans-default;
+    }
+
+    @include hover {
+      &:hover,
+      &:focus {
+        opacity: 1;
+        color: $color-default-white;
+        background-color: $color-default-black;
+
+        svg {
+          fill: $color-default-black;
+          stroke: $color-default-white;
+        }
+
+        //color: rgba($color-default-black, 0.8);
+        //border-color: rgba($color-default-black, 0.8);
+        //
+        //svg {
+        //  fill: $color-default-black;
+        //}
+      }
+    }
+  }
+
+  &__info {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+}

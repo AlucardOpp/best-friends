@@ -1,0 +1,162 @@
+.set {
+  min-height: 627px;
+  max-height: calc(100vh - var(--headerHeight));
+  position: relative;
+  display: block;
+  color: $color-default-white;
+
+  @include hover {
+    :hover {
+      & .set__button {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @media (min-width: 1361px) {
+    height: 46.07vw;
+  }
+
+  @include vp-1023 {
+    min-height: 570px;
+  }
+
+  & .container {
+    padding-top: 52px;
+    padding-bottom: 19px;
+    position: relative;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    max-height: inherit;
+
+    @media (min-width: 1361px) {
+      height: 46.07vw;
+    }
+
+    @include vp-767 {
+      padding-top: 14px;
+      padding-bottom: 16.5px;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 640px;
+    margin: auto;
+    // margin-top: 205px;
+
+    @include vp-767 {
+      max-width: 200px;
+      margin-top: 191px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 21px;
+
+    @include vp-767 {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__type {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: $color-default-white;
+    margin: 0 0 19px;
+
+    @include vp-767 {
+      line-height: 1.19;
+      margin-bottom: 3px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 230px;
+
+    @include vp-767 {
+      max-width: 270px;
+    }
+  }
+
+  &__parameter {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5.9%;
+
+    @include vp-767 {
+      margin-right: 6.9%;
+      margin-left: 1.5px;
+    }
+  }
+
+  &__parameter--carats {
+    width: 73px;
+  }
+
+  .set__parameter--quantity {
+    margin-left: -4px;
+
+    @include vp-767 {
+      margin-left: 10px;
+    }
+  }
+
+  &__carat,
+  &__quantity {
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 5px;
+
+    @include vp-767 {
+      font-size: 20px;
+      line-height: 0.77;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  &__name {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1;
+
+    @include vp-767 {
+      line-height: 1.19;
+    }
+  }
+
+  &__price {
+    font-size: 14px;
+    line-height: 1;
+    margin-top: 25px;
+
+    @include vp-767 {
+      margin-top: 17.5px;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  &__background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

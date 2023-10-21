@@ -1,0 +1,147 @@
+.title {
+  &-huge,
+  &-large,
+  &-large-2,
+  &-medium,
+  &-medium-2,
+  &-small,
+  &-small-2,
+  &-small-3,
+  &-tiny,
+  &-very-tiny,
+  &-very-tiny-2,
+  &-smallest {
+    margin: 0;
+    font-family: $ff-tt-travels-next;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+
+    &--white {
+      color: $color-default-white;
+    }
+  }
+
+  &-huge {
+    font-size: 80px;
+    line-height: 0.92;
+
+    @include vp-767 {
+      font-size: 25px;
+      line-height: 1.06;
+    }
+  }
+
+  &-large {
+    font-size: 75px;
+    line-height: 0.85;
+
+    @include vp-767 {
+      font-size: 25px;
+      line-height: 1.06;
+    }
+  }
+
+  &-large-2 {
+    font-size: 75px;
+    line-height: 0.77;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+
+    @include vp-767 {
+      font-size: 34px;
+      line-height: 0.86;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  &-medium {
+    font-size: 50px;
+    line-height: 1;
+
+    @include vp-767 {
+      font-size: 36px;
+      line-height: 1.03;
+    }
+  }
+
+  &-medium-2 {
+    font-size: 50px;
+    line-height: 1;
+
+    @include vp-767 {
+      font-size: 25px;
+      line-height: 1.06;
+    }
+  }
+
+  &-small {
+    font-size: 45px;
+    line-height: 0.93;
+
+    @include vp-767 {
+      font-size: 22px;
+      line-height: 0.95;
+    }
+  }
+
+  &-small-2 {
+    font-size: 45px;
+    line-height: 0.93;
+
+    @include vp-767 {
+      font-size: 17px;
+      line-height: 0.99;
+    }
+  }
+
+  &-small-3 {
+    font-size: 45px;
+    line-height: 0.93;
+
+    @include vp-767 {
+      font-size: 36px;
+      line-height: 0.99;
+    }
+  }
+
+  &-tiny {
+    font-size: 38px;
+    line-height: 1;
+
+    @include vp-767 {
+      font-size: 25px;
+      line-height: 1.06;
+    }
+  }
+
+  &-very-tiny {
+    font-size: 27px;
+    line-height: 0.9;
+
+    @include vp-767 {
+      font-size: 17px;
+      line-height: 0.99;
+    }
+  }
+
+  &-very-tiny-2 {
+    font-size: 27px;
+    line-height: 0.9;
+
+    @include vp-767 {
+      font-size: 22px;
+      line-height: 0.95;
+    }
+  }
+
+  &-smallest {
+    font-size: 20px;
+    line-height: 0.95;
+
+    @include vp-767 {
+      font-size: 17px;
+      line-height: 0.99;
+    }
+  }
+}

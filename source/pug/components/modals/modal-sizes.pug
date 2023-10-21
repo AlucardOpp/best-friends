@@ -1,0 +1,64 @@
+-
+  const sizesList = [
+    {
+      ring: "15",
+      finger: "47-48 мм",
+    },
+    {
+      ring: "15,5",
+      finger: "48-49 мм",
+    },
+    {
+      ring: "16",
+      finger: "49-50 мм",
+    },
+    {
+      ring: "16,5",
+      finger: "50-52 мм",
+    },
+    {
+      ring: "17",
+      finger: "52-53 мм",
+    },
+    {
+      ring: "17,5",
+      finger: "53-55 мм",
+    },
+    {
+      ring: "18",
+      finger: "55-56 мм",
+    },
+    {
+      ring: "18,5",
+      finger: "56-58 мм",
+    },
+    {
+      ring: "19",
+      finger: "58-59 мм",
+    },
+    {
+      ring: "19,5",
+      finger: "59-61 мм",
+    },
+    {
+      ring: "20",
+      finger: "61-63 мм",
+    },
+  ]
+
+mixin modal-sizes()
+  .modal-sizes
+    .modal-sizes__top
+      .modal-sizes__content
+        h2.title-smallest.modal-sizes__title Размеры колец
+        p.modal-sizes__text Можно обмотать палец ниткой и&nbsp;померить длину нити
+      .modal-sizes__img
+        img(src="img/svg/hand.svg", width=227, height=167, alt="Размеры колец")
+    .modal-sizes__sizes
+      .modal-sizes__size.modal-sizes__size--header
+        span.modal-sizes__size-left Размер
+        span.modal-sizes__size-right Обхват пальца
+      each item in sizesList
+        .modal-sizes__size
+          span.modal-sizes__size-left= item.ring
+          span.modal-sizes__size-right= item.finger

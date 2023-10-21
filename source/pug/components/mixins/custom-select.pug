@@ -1,0 +1,27 @@
+mixin custom-select(options = {})
+  - const selectLabel = options.label ? options.label : false
+  - const selectError = options.error ? options.error : false
+  - const selectPlaceholder = options.placeholder ? options.placeholder : false
+  - const buttonAriaLabel = options.buttonAriaLabel ? options.buttonAriaLabel : "Выберите одну из опций"
+
+  div&attributes(attributes)
+    .custom-select__wrap
+      if selectPlaceholder
+        span.custom-select__placeholder=selectPlaceholder
+      button.custom-select__button(type="button", aria-label=buttonAriaLabel)
+        span.custom-select__text
+        span.custom-select__icon.arrow-down
+      .custom-select__list-container
+        .custom-select__list-wrapper
+          ul.custom-select__list(role="listbox")
+            each item in options.optionsList
+              - const ariaSelected = item.isActive ? "true" : "false"
+              - const disabled = item.isDisabled ? "true" : null
+              li.custom-select__item(class=itemClass, tabindex="0", data-select-value=item.value, aria-selected=ariaSelected, data-disabled=disabled, role="option")=item.text
+                if (item.img)
+                  +img('content/goods', 'earrings', 'png', 50, 50).custom-select__img
+    if selectError
+      .custom-select__error
+        span=selectError
+    if selectLabel
+      span.custom-select__label=selectLabel

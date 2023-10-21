@@ -1,0 +1,75 @@
+.header {
+  background-color: $color-default-white;
+  z-index: 11;
+  position: fixed;
+  width: 100%;
+  transform: translateY(0);
+  transition: transform $trans-default;
+
+  &__wrapper {
+    padding: 9px 0;
+    border-bottom: 1px solid $color-default-black;
+    transition: border-color $trans-600;
+
+    .header--grey-bd & {
+      border-color: $color-solitude;
+    }
+
+    .header--grey-bd-sm & {
+      @include vp-767 {
+        border-color: $color-solitude;
+      }
+    }
+
+    .header--no-bd-md & {
+      @include vp-1023 {
+        border: none;
+      }
+    }
+
+    .fixed & {
+      border-color: $color-solitude;
+    }
+
+    @include vp-1023 {
+      padding: 7px 0 9px;
+    }
+  }
+
+  &--top {
+    transform: translateY(-100%);
+  }
+
+  @include vp-1023 {
+    background-color: $color-default-white;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    @include vp-1023 {
+      padding: 0 19px 0 17px;
+    }
+  }
+
+  &__logo {
+    -webkit-tap-highlight-color: $color-transparent;
+    margin-top: 6px;
+    margin-right: 24px;
+
+    @include vp-1040 {
+      margin-right: 18px;
+    }
+
+    &[href] {
+      transition: opacity $trans-default;
+
+      @include hover {
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

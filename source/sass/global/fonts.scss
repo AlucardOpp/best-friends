@@ -1,0 +1,50 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Rouble";
+
+  font-display: swap;
+  src:
+    url("../fonts/rouble.woff2") format("woff2"),
+    url("../fonts/rouble.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "TT Travels Next";
+  font-display: swap;
+  src:
+    url("../fonts/tt-travels-next-regular.woff2") format("woff2"),
+    url("../fonts/tt-travels-next-regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Montserrat";
+  font-display: swap;
+  src:
+    url("../fonts/montserrat-regular.woff2") format("woff2"),
+    url("../fonts/montserrat-regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "Montserrat";
+  font-display: swap;
+  src:
+    url("../fonts/montserrat-medium.woff2") format("woff2"),
+    url("../fonts/montserrat-medium.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: "Montserrat";
+  font-display: swap;
+  src:
+    url("../fonts/montserrat-semibold.woff2") format("woff2"),
+    url("../fonts/montserrat-semibold.woff") format("woff");
+}

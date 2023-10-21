@@ -1,0 +1,17 @@
+mixin set(set)
+  a(href=set.href aria-label="Перейти к набору").set&attributes(attributes)
+    .set__background-image
+      +picture(`content/sets`, `background-${set.image}`, "jpg", 1360, 627, "Фоновое изображение", "mobile")
+    .container
+      .set__text-container
+        span.set__type!=set.type
+        h3.set__title.title-large-2.title-large-2--white!=set.title
+        +see-btn({href: set.href}).set__button
+      .set__details
+        .set__parameter.set__parameter--carats
+          span.set__carat!=set.carat
+          span.set__name Карата
+        .set__parameter.set__parameter--quantity
+          span.set__quantity!=`&times;${set.quantity}`
+          span.set__name Бриллиантов
+        span.set__price!=`${set.price} ₽`

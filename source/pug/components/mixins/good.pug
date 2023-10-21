@@ -1,0 +1,77 @@
+mixin good(good)
+  if (good.cardType === "standard")
+    a.good.good--standard(href=good.href, aria-label="Перейти к товару", class=(good.title === "Подвески") ? "good--pendants" : null, data-type=good.type)
+      .container
+        .good__image
+          +picture("content/goods", good.image, "png", good.width, good.height, "Изображение украшения")
+        h3.good__title.title-tiny!=good.title
+        p.good__description #[span.good__count!=good.count] #[span.good__incline!=good.incline]
+        +see-btn().good__button
+  else if (good.cardType === "product")
+    .good.good--product(class=good.video ? "good--hover-video" : "")
+      a.good__wrapper(href=good.href aria-label="Перейти к товару")
+        .good__background-image
+          if good.video
+            video(width="680" height="600" muted playsinline loop data-bg-video src="" data-video-src=`video/video-${good.backgroundVideo}.mp4`)
+          else
+            +picture("content/catalog-goods", `good-background`, "jpg", 680, 600, "Фоновое изображение")
+        .loader(data-video-loader).hidden
+          .loader__inner
+            span
+        .container
+          .good__swiper.swiper(class=good.sequence ? "good__swiper--sequence" : "")
+            .good__swiper-wrapper.swiper-wrapper
+              each image in good.images
+                .good__slide.swiper-slide
+                  .good__image
+                    +picture("content/catalog-goods", image.image, "png", image.width, image.height, "Изображение украшения")
+                  if (image.sequence)
+                    .good__sequence(data-sequence, data-hover-sequence='true', data-sequence-frames="416", data-sequence-path=image.sequencePath, data-image-format="jpg", data-hover-preload="true")
+                      canvas(data-sequence-canvas)
+                      .loader(data-sequence-loader).hidden
+                        .loader__inner
+                          span
+            if (!good.sequence)
+              .good__pagination.swiper-pagination
+          .good__container
+            .good__text-content
+              h2.good__title.title-very-tiny
+                span!=good.collection
+                span!=good.type
+              if(!good.material2)
+                p.good__description #[span!=good.material1]
+              else
+                p.good__description #[span!=good.material1], #[span!=good.material2]
+              span.good__price!=`${good.price} ₽`
+            +see-btn().good__button
+      +btn-favorite().good__btn-favorite
+  else if (good.cardType === "background")
+    .good.good--background
+      .good__background-image.good__background-image--video
+        video(width="680" height="600" autoplay muted playsinline loop poster=`img/content/catalog-goods/background-image-${good.backgroundImage}.jpg` src="" data-video-src=`video/video-${good.backgroundImage}.mp4`)
+      .container
+        .good__background-text
+          span.good__background-description!=good.description
+          h2.good__background-title.title-small.title-small--white!=good.title
+  else if (good.cardType === "slider")
+    .good.good--slider
+      a.good__wrapper(href=good.href aria-label="Перейти к товару")
+        .container
+          .good__image
+            +picture("content/products", good.image, "png", good.width, good.height, "Изображение украшения")
+          .good__container
+            .good__text-content
+              h2.good__title.title-smallest
+                span!=good.collection
+                if (good.type)
+                  span!=good.type
+              p.good__description #[span!=good.material1], #[span!=good.material2]
+              span.good__price!=`${good.price} ₽`
+      +btn-favorite().good__btn-favorite
+  else if (good.cardType === "menu")
+    a.good.good--menu(href=good.href, aria-label="Перейти к товарам", class=(good.title === "Подвески") ? "good--pendants" : null, data-type=good.type)
+      .container
+        .good__image
+          +picture("content/goods", good.image, "png", good.width, good.height, "Изображение украшения")
+        h3.good__title.title-tiny!=good.title
+        p.good__description #[span.good__count!=good.count] #[span.good__incline!=good.incline]

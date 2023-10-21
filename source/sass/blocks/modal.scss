@@ -1,0 +1,253 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  background-color: rgba($color-default-black, 0.8);
+  transform: scale(1.2);
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity $trans-modal,
+    transform $trans-modal,
+    visibility $trans-modal;
+
+  pointer-events: none;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 60px 40px;
+
+    @include vp-767 {
+      padding: 60px 16px;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+
+    width: 600px;
+    padding: 40px;
+
+    background-color: $color-default-white;
+
+    @include vp-767 {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 1;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    background: $color-transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &--responsive {
+    .modal__content {
+      width: 100%;
+    }
+  }
+
+  &--fit-content {
+    .modal__content {
+      width: auto;
+
+      @include vp-767 {
+        width: 100%;
+      }
+    }
+  }
+
+  &--no-scale {
+    transform: none;
+  }
+
+  &--preload {
+    transition: none;
+  }
+
+  &.is-active {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+
+  &--sizes {
+    background: rgba(220, 220, 220, 0.1);
+    backdrop-filter: blur(40px);
+
+    @include vp-1023 {
+      background: none;
+      backdrop-filter: none;
+    }
+
+    .modal__wrapper {
+      padding: 0;
+      justify-content: flex-start;
+      align-items: stretch;
+
+      @include vp-1023 {
+        align-items: flex-start;
+      }
+    }
+
+    .modal__content {
+      max-width: 100%;
+      width: 454px;
+      padding: 0;
+
+      @include vp-1023 {
+        width: 100%;
+      }
+    }
+
+    .modal__close-btn {
+      left: auto;
+      right: -1px;
+      top: 0;
+      width: 73px;
+      height: 73px;
+
+      background-color: $color-default-white;
+
+      transform: translateX(100%);
+
+      @include vp-1023 {
+        width: 45px;
+        height: 45px;
+        left: auto;
+        right: 0px;
+        top: 0px;
+
+        transform: none;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
+        height: 1px;
+        background-color: $color-default-black;
+
+        transform: translate3d(-50%, -50%, 0) rotate(45deg);
+
+        @include vp-1023 {
+          width: 27px;
+        }
+      }
+
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  &--cancel-order {
+    background: rgba(220, 220, 220, 0.102);
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+
+    .modal__content {
+      max-width: 465px;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .modal__close-btn {
+      position: fixed;
+      right: 0;
+      left: auto;
+      top: 0;
+      width: 73px;
+      height: 73px;
+
+      background-color: $color-default-white;
+
+      // transform: translateX(-100%);
+
+      @include vp-767 {
+        width: 40px;
+        height: 40px;
+        right: 0;
+        top: 0;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
+        height: 1px;
+        background-color: $color-default-black;
+
+        transform: translate3d(-50%, -50%, 0) rotate(45deg);
+
+        @include vp-767 {
+          width: 27px;
+        }
+      }
+
+      &::after {
+        transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+mixin modal-authorize(error)
+  .modal-authorize
+    h2.title-medium Вход
+    .modal-authorize__forms
+      .modal-authorize__form-phone.is-active(data-validate data-callback="authorizePhoneSubmit")
+        form(action="#")
+          +custom-input({inputError: "Введите корректный номер телефона. Пример: +7 9** ***-**-**", inputErrorEmpty: "Введите номер", inputName: "user-phone"})(data-validate-type="phone")
+          p.modal-authorize__input-text Пришлем СМС с кодом
+          button.btn.modal-authorize__btn(type="submit") Получить код
+      .modal-authorize__form-code(class=error ? "is-error" : "", data-validate data-callback="authorizeCodeSubmit")
+        p.modal-authorize__send-phone Отправили код на #[span(data-authorize-phone) +7 (904) 124-56-55]
+        form(action="#" autocomplete="off")
+          .modal-authorize__inputs
+            - let n = 1;
+            while n <= 4
+              +custom-input({
+                inputName: `code-${n++}`,
+                inputType: "text",
+                dataMatrix: "_",
+                dataMatrixLimitations: "digit",
+              }).modal-authorize__code(data-validate-type="matrix")
+          span.modal-authorize__code-error Неверный код
+          .modal-authorize__timer
+            p.modal-authorize__text-timer Получить новый код можно через #[span(data-authorize-timer="40") 00:40]
+            button.modal-authorize__resend.btn.btn--gray(type="button") Отправить код повторно
+          button.btn.modal-authorize__btn(type="submit" disabled data-submit-code) Подтвердить
+    .modal-authorize__info
+      +icon("icon-stars-white", 57, 40)
+      p.modal-authorize__text Если у&nbsp;вас еще нет аккаунта, он&nbsp;автоматически зарегистрируется при первом входе

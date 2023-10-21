@@ -1,0 +1,278 @@
+.ordering {
+  padding-top: 23px;
+
+  @include vp-767 {
+    padding-top: 21px;
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px $color-solitude;
+    -webkit-text-fill-color: $color-default-black;
+  }
+
+  .title-smallest {
+    margin-bottom: 20px;
+
+    @include vp-767 {
+      margin-bottom: 9px;
+    }
+  }
+
+  &__payment {
+    margin-bottom: 41px;
+
+    @include vp-767 {
+      margin-bottom: 21px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 10px;
+    row-gap: 10px;
+
+    @include vp-1023 {
+      grid-template-columns: 1fr;
+      row-gap: 10px;
+    }
+  }
+
+  &__item {
+    input:checked + .ordering__item-wrap {
+      &::after {
+        width: 10px;
+        height: 5px;
+
+        @include vp-767 {
+          width: 8px;
+          height: 4px;
+        }
+      }
+
+      label::before {
+        border-color: $color-default-black;
+      }
+    }
+
+    &--online {
+      .ordering__item-wrap {
+        @include vp-767 {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        label {
+          @include vp-767 {
+            margin-bottom: 0;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &__item-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 82px;
+    padding: 15px;
+    padding-left: 44px;
+
+    background-color: $color-solitude;
+
+    @include vp-767 {
+      min-height: 57px;
+      padding: 12px 12px 11px 40px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 23px;
+      top: 24px;
+      width: 22px;
+      height: 17px;
+
+      background-color: $color-default-black;
+      border-radius: 14px;
+
+      transform: translate(-50%, -50%);
+      will-change: width, height;
+      transition: width $trans-default, height $trans-default;
+
+      @include vp-767 {
+        left: 21px;
+        top: 29px;
+        width: 17px;
+        height: 13px;
+      }
+    }
+
+    &::after {
+      width: 20px;
+      height: 15px;
+
+      background-color: inherit;
+
+      @include vp-767 {
+        width: 15px;
+        height: 11px;
+      }
+    }
+
+    label {
+      margin-bottom: 3px;
+      cursor: pointer;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      color: $color-default-black;
+
+      @include vp-767 {
+        margin-bottom: 6px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 1px solid $color-silver;
+        border-radius: 20px;
+
+        transition: border-color $trans-default;
+      }
+
+      @include hover {
+        &:hover {
+          &::before {
+            border-color: rgba($color-default-black, 0.6);
+          }
+        }
+      }
+    }
+  }
+
+  &__item-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: $color-grey;
+  }
+
+  &__payment-list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-top: 5px;
+
+    @include vp-767 {
+      margin-top: 0;
+    }
+
+    svg {
+      margin-right: 11px;
+
+      @include vp-767 {
+        height: 13px;
+        width: auto;
+        margin-right: 7px;
+      }
+    }
+  }
+
+  &__place {
+    margin-bottom: 36px;
+
+    @include vp-767 {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__place-wrap {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, 125px);
+    column-gap: 10px;
+    row-gap: 20px;
+
+    @include vp-1023 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 8px;
+    }
+
+    .custom-input input {
+      max-width: 100%;
+    }
+  }
+
+  &__input-city {
+    grid-column: 1 / -1;
+    z-index: auto;
+
+    &.is-open {
+      z-index: auto;
+    }
+  }
+
+  &__input-street {
+    @include vp-1023 {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__time {
+    margin-bottom: 35px;
+
+    @include vp-767 {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__time-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-bottom: 6px;
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      row-gap: 9px;
+    }
+
+    .custom-select {
+      z-index: auto;
+    }
+
+    .custom-select.is-open {
+      z-index: auto;
+    }
+  }
+
+  &__time-info {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: $color-grey;
+  }
+
+  &__contacts {
+    .custom-input {
+      margin-bottom: 16px;
+
+      @include vp-767 {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

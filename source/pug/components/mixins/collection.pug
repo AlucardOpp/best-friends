@@ -1,0 +1,25 @@
+mixin collection(collection)
+  a(href=collection.href aria-label="Перейти к коллекции").collection&attributes(attributes)
+    .collection__background-image
+      +picture(`content/collections`, `background-${collection.image}`, "jpg", 1360, 800, "Фоновое изображение", "mobile")
+    .container
+      .collection__text-container
+        span.collection__type!=collection.type
+        case collection.title
+          when "Новая весенняя коллекция"
+            h3.collection__title.title-large.title-large--white Новая весенняя коллекция #[span!="украшений из золота"]
+          default
+            h3.collection__title.title-large.title-large--white!=collection.title
+        +see-btn({href: collection.href}).collection__button
+      if (collection.description)
+        .collection__description!=collection.description
+      if (collection.infoList || collection.price)
+        .collection__info
+          if (collection.infoList)
+            .collection__info-list
+              each item in collection.infoList
+                .collection__info-item
+                  p.collection__info-text-1!= item.text1
+                  p.collection__info-text-2!= item.text2
+          if (collection.price)
+            p.collection__price 390 000 ₽

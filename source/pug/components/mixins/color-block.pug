@@ -1,0 +1,19 @@
+mixin color-block(title)
+  +card-block({
+    title: title ? "Цвет бриллианта" : false,
+    icon: "diamond",
+    icon2: "icon-stars-white-2",
+    btns: [
+      "D",
+      "E",
+      "F",
+      "G",
+      "J",
+      "H",
+      "I",
+      "K",
+      "L",
+      "M",
+    ],
+    text: "Почти бесцветные бриллианты c небольшим оттенком желтого",
+  })&attributes(attributes)

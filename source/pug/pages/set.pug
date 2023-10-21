@@ -1,0 +1,29 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Коллекция Bruno — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "set.html"
+  -
+    const collectionInfo = {
+      type: "Наборы",
+      title: "Наборы бриллиантов",
+      description: "Текст про наборы бриллиантов. Вдохновились эстетикой грубых форм и создали смелые непривычные формы украшений",
+      image: "3",
+      href: "#",
+    }
+
+block main
+  main
+    +product-set
+    +catalog-goods(jewelryGoods, "Присмотритесь").desktop-only
+    +slider-products(jewelryGoods2, "Присмотритесь").mobile-only
+    +slider-products(products)
+
+block modals
+  +modal("modal--sizes")(data-modal="sizes")
+    +modal-sizes()

@@ -1,0 +1,16 @@
+mixin ordering-place()
+  section.ordering__place&attributes(attributes)
+    h3.title-smallest Куда доставить
+    .ordering__place-wrap
+      +custom-select({
+        optionsList: [
+          {text: "Москва", value: "Москва"},
+          {text: "Санкт-Петербург", value: "Санкт-Петербург"},
+          {text: "Смоленск", value: "Смоленск"},
+        ],
+        placeholder: "Город",
+        error: "Выберите город",
+        })(data-select, data-validate-type="select", data-name="delivery-city", data-id="delivery-city").custom-select.custom-select--input-size.ordering__input-city
+      +custom-input({inputPlaceholder: "Улица", inputError: "Нам нужно знать куда доставить", inputName: "street"})(data-validate-type="text").ordering__input-street
+      +custom-input({inputPlaceholder: "Дом/корпус", inputName: "house"})(data-validate-type="text")
+      +custom-input({inputPlaceholder: "Квартира", inputName: "apartment"})(data-validate-type="text")

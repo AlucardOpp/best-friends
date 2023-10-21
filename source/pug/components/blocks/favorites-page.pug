@@ -1,0 +1,15 @@
+mixin favorites-page(data)
+  .favorites-page
+    .favorites-page__heading
+      .container
+        h1.title-medium Избранное
+        button.btn.btn--clear.favorites-page__heading-btn(type="button", data-favorites-clear)
+          span.favorites-page__heading-btn-text Очистить
+          span.favorites-page__heading-btn-icon
+            +icon("icon-clear", 9, 8)
+    section.favorites-page__content
+      .container
+        ul.favorites-page__list(data-favorites-list)
+          each item in data
+            li.favorites-page__item(data-favorites-item)
+              +good(item)

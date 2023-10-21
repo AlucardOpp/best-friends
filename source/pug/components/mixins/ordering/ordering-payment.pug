@@ -1,0 +1,22 @@
+mixin ordering-payment()
+  section.ordering__payment&attributes(attributes)
+    h3.title-smallest Способ оплаты
+    ul.ordering__list
+      li.ordering__item
+        input.visually-hidden(type="radio" name="payment" value="delivery" id="delivery" checked)
+        .ordering__item-wrap
+          label(for="delivery") При получении
+          span.ordering__item-text Картой или наличными
+      li.ordering__item.ordering__item--online
+        input.visually-hidden(type="radio" name="payment" value="online" id="online")
+        .ordering__item-wrap
+          label(for="online") Онлайн
+          p.ordering__payment-list
+            +icon("icon-pay", 41, 17)
+            +icon("icon-visa", 33, 17)
+            +icon("icon-mastercard", 25, 17)
+      li.ordering__item
+        input.visually-hidden(type="radio" name="payment" value="invoice" id="invoice")
+        .ordering__item-wrap
+          label(for="invoice") Выставить счет
+          span.ordering__item-text Пришлем ссылку на счет

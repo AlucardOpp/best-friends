@@ -1,0 +1,8 @@
+mixin goods(data)
+  section.goods
+    h2.visually-hidden!="Товары"
+    .container
+      ul.goods__list
+        each item in data
+          li.goods__item
+            +good(item)

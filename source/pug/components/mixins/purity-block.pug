@@ -1,0 +1,16 @@
+mixin purity-block(title)
+  +card-block({
+    title: title ? "Чистота бриллианта" : false,
+    icon: "icon-stars-white-2",
+    icon2: "diamond",
+    btns: [
+      "VVS2",
+      "VVS1",
+      "VS1",
+      "VS2",
+      "SI3",
+      "SI1",
+      "SI2",
+    ],
+    text: "Почти бесцветные бриллианты c небольшим оттенком желтого",
+  }).card-block--purity&attributes(attributes)

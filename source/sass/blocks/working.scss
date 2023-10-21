@@ -1,0 +1,69 @@
+.working {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-solitude;
+  border-bottom: 1px solid $color-default-white;
+  padding-top: 103px;
+  padding-bottom: 117px;
+
+  @include vp-1023 {
+    padding-top: 96px;
+    padding-bottom: 138px;
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  @media (min-width: 1361px) {
+    min-height: 41.67vw;
+  }
+
+  &__img {
+    width: 198px;
+    height: 198px;
+    margin-bottom: 21px;
+
+    @include vp-1023 {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 26px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.1px;
+
+    @include vp-1023 {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    max-width: 1164px;
+    margin: 0;
+    font-family: $ff-tt-travels-next;
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 92.5%;
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    @include vp-1023 {
+      font-size: 25px;
+      line-height: 106%;
+    }
+  }
+}

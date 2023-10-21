@@ -1,0 +1,18 @@
+mixin card-block(data)
+  .card-block&attributes(attributes)
+    if (data.title)
+      p.card-block__title!= data.title
+    .card-block__wrap(data-tabs="parent")
+      .card-block__img(data-tabs="content")
+        each btn, index in data.btns
+          if (index % 2 === 0)
+            +icon(data.icon, 116, 84)(data-tabs="element")
+          else
+            +icon(data.icon2, 116, 84)(data-tabs="element")
+      .card-block__content
+        .card-block__btns(data-tabs="controls")
+          each btn, index in data.btns
+            button(type="button", class=(index === 0) ? "active" : false, data-tabs="control").card-block__btn= btn
+        p.card-block__text!= data.text
+      button(type="button", aria-label="Закрыть", data-tooltip-close).card-block__close
+        +icon('icon-close', 16, 16)

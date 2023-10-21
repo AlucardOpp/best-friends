@@ -1,0 +1,18 @@
+mixin slider-products(data, title)
+  section.slider-products&attributes(attributes)
+    .container
+      .slider-products__container
+        if (title)
+          h2.slider-products__title.title-small!= title
+        else
+          h2.slider-products__title.title-small!="Вы&nbsp;смотрели"
+        .slider-products__navigation
+          .slider-products__navigation-button.slider-products__navigation-button--prev.swiper-button-prev
+            +icon("icon-arrow-left", 20, 26)
+          .slider-products__navigation-button.slider-products__navigation-button--next.swiper-button-next
+            +icon("icon-arrow-right", 20, 26)
+      .slider-products__swiper.swiper
+        .slider-products__swiper-wrapper.swiper-wrapper
+          each item in data
+            .slider-products__slide.swiper-slide
+              +good(item)

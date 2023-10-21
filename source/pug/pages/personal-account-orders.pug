@@ -1,0 +1,18 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Заказы — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = "header--grey-bd"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "personal-account-orders.html"
+
+block main
+  main
+    +orders(orders)
+
+block modals
+  +modal("modal--cancel-order")(data-modal="cancel-order")
+    +modal-cancel-order()

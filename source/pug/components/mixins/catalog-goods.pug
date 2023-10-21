@@ -1,0 +1,32 @@
+mixin catalog-goods(data, title)
+  .catalog-goods.goods&attributes(attributes)
+    .container
+      if (title)
+        p.goods__title.title-small!= title
+      ul.goods__list
+        each item in data
+          if (item.collection == true)
+            li.goods__item.goods__item--collection(data-type="image" class=(item.cardType === "catalog-background") ? "goods__item--catalog-background" : null)
+              -
+                const collectionInfo = {
+                  type: "Наборы",
+                  title: "Наборы бриллиантов",
+                  description: "Текст про наборы бриллиантов. Вдохновились эстетикой грубых форм и создали смелые непривычные формы украшений",
+                  image: "3",
+                  href: "#",
+                }
+              +collection(collectionInfo).collection--catalog
+          else if (item.kaleido == true)
+            li.goods__item.goods__item--kaleido(data-type="image" class=(item.cardType === "catalog-background") ? "goods__item--catalog-background" : null)
+              +kaleido-block({title: "Мастера ограняют бриллианты в&nbsp;течение недели", text: ""}).kaleido--border-bottom
+          else if (item.work == true)
+            li.goods__item.goods__item--work(data-type="image" class=(item.cardType === "catalog-background") ? "goods__item--catalog-background" : null)
+              +how-we-works()
+          else if (item.working == true)
+            li.goods__item.goods__item--working(data-type="image")
+              +working
+          else
+            - const type = item.cardType === "product" ? "product" : "image"
+            li.goods__item(class=(item.cardType === "catalog-background") ? "goods__item--catalog-background" : null data-price=item.price data-material=item.dataMaterial data-collection=item.dataCollection data-color=item.color data-size=item.size data-purity=item.purity data-type=type)
+              +good(item)
+

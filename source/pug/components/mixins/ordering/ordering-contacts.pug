@@ -1,0 +1,6 @@
+mixin ordering-contacts()
+  section.ordering__contacts&attributes(attributes)
+    h3.title-smallest Контакты
+    +custom-input({inputPlaceholder: "Имя", inputName: "name", inputError: "Мы&nbsp;будем знать кому везём"})(data-validate-type="text")
+    +custom-input({inputPlaceholder: "Телефон", inputError: "Введите корректный номер телефона. Пример: +7 9** ***-**-**", inputErrorEmpty: "По номеру мы сможем связаться с вами", inputName: "phone"})(data-validate-type="phone")
+    +custom-input({inputPlaceholder: "Почта", inputName: "email", inputError: "Неверный формат почты. Пример: mail@example.ru"})(data-validate-type="email")

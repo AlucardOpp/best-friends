@@ -1,0 +1,13 @@
+mixin intro()
+  section.intro
+    a.intro__wrapper(href="#" aria-label="Переходит в коллекцию")
+      h2.visually-hidden!="Интро"
+      .intro__background-image
+        +picture("content/intro", "intro-background", "png", 1360, 800, "Фоновое изображение")
+      .container
+        .intro__content-image
+          +picture("content/intro", "intro-content", "png", 423, 404, "Кольца")
+        .intro__text-container
+          h1.intro__title.title-medium-2.title-medium-2--white="Новая коллекция"
+          p.intro__description Текст про коллекцию. Вдохновились эстетикой грубых форм #[span!="и&nbsp;создали смелые непривычные формы украшений"]
+        +see-btn().intro__button

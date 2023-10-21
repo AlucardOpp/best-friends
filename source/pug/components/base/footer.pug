@@ -1,0 +1,87 @@
+mixin footer(footerMods, currentUrl)
+  -
+    const footerLinks = [
+      {
+        href: "about.html",
+        text: "О нас"
+      },
+      {
+        href: "#",
+        text: "Оплата и доставка"
+      },
+      {
+        href: "#",
+        text: "Гарантии"
+      },
+      {
+      href: "#",
+      text: "Сертификация"
+      },
+      {
+      href: "#",
+      text: "Контакты"
+      },
+    ]
+
+  footer.footer(class=footerMods)
+    .container
+      h2.visually-hidden Ссылки и подписка
+      .footer__wrapper
+        .footer__about
+          h3.title-smallest О компании
+          ul.footer__about-list
+            each link in footerLinks
+              - const activeState = currentUrl === link.href
+              li.footer__item
+                if(activeState)
+                  span.footer__link.is-active=link.text
+                    +icon("icon-arrowhead-right", 6, 11)
+                else
+                  a.footer__link(href=link.href, data-anchor=link.anchor)=link.text
+                    +icon("icon-arrowhead-right", 6, 11)
+        .footer__catalog
+          h3.title-smallest Каталог
+          ul.footer__catalog-list
+            li
+              a.footer__link(href="#") Бриллианты
+                +icon("icon-arrowhead-right", 6, 11)
+            li
+              a.footer__link(href="#") Наборы бриллиантов
+                +icon("icon-arrowhead-right", 6, 11)
+            li
+              a.footer__link(href="#") Серьги
+                +icon("icon-arrowhead-right", 6, 11)
+            li
+              a.footer__link(href="#") Кольца
+                +icon("icon-arrowhead-right", 6, 11)
+            li
+              a.footer__link(href="#") Подвески
+                +icon("icon-arrowhead-right", 6, 11)
+            li
+              a.footer__link(href="#") Браслеты
+                +icon("icon-arrowhead-right", 6, 11)
+        .footer__form
+          .form.footer-form(data-validate, data-callback="formFooterSuccessCallback")
+            h3.title-smallest Подписка
+            form(method="post", action="https://echo.htmlacademy.ru/")
+              +custom-input({
+                inputPlaceholder: "Почта",
+                inputName: "user-email",
+                inputError: "Неверный формат почты.<br> Пример: mail@example.ru"
+              })(data-validate-type= "email")
+              button.footer-form__btn(type="submit", aria-label="Подписаться на рассылку")
+                +icon("icon-arrowhead-right", 6, 11)
+              p.footer-form__desc Рассылка для тех, кто хочет первым увидеть новые коллекции и узнать новости
+            .footer-form__success
+              +icon("icon-success-submit", 20, 20)
+              p.title-smallest Подписка оформлена, скоро будем радовать вас новостями
+          p.footer__authorship Сайт сделали в
+            a(href="#", target="_blank", rel="nofollow noopener", aria-label="Перейти на сайт дизайнерской компании")
+              +icon("icon-come", 76, 12)
+        .footer__contacts
+          a(href="tel:84952405553", aria-label="Позвонить на телефон компании") +7 495 240-55-53
+          a(href="whatsapp://send?phone=74952405553", aria-label="Перейти в WhatsApp") #[+icon("icon-whatsapp", 22, 22)] Whatsapp
+        p.footer__authorship.footer__authorship--bottom Сайт сделали в
+          a(href="#", target="_blank", rel="nofollow noopener", aria-label="Перейти на сайт дизайнерской компании")
+            +icon("icon-come", 76, 12)
+

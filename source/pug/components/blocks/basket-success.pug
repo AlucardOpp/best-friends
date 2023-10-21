@@ -1,0 +1,11 @@
+mixin basket-success()
+  section.basket-success
+    .basket-success__bg(data-kaleido)
+    .basket-success__content
+      +icon("icon-stars", 57, 40)
+      h1.title-medium-2 Заказ оформлен
+      p.basket-success__text Скоро мы&nbsp;свяжемся с&nbsp;вами и&nbsp;уточним детали заказа.
+      a.basket-success__link.btn.btn--gray(href="personal-account-orders.html")
+        +icon("icon-user", 14, 22)
+        | Личный кабинет
+      span.basket-success__info Можно следить за&nbsp;статусом заказа

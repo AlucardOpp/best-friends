@@ -1,0 +1,17 @@
+mixin about-section(data)
+  section.about__section(class=data.reverse ? "about__section--reverse" : false)
+    .about__image
+      +picture("content/about", data.img, "jpg", 900, 735, "image")
+    .about__content
+      h2.title-small-3!= data.title
+      p.about__text!= data.text
+      if data.text2
+        p.about__text2!= data.text2
+      if data.features
+        ul.about__features
+          li.about__feature
+            +icon("icon-stars-white", 57, 40)
+            p.about__feature-text Мы&nbsp;специально отюираем алмазы без посредников у&nbsp;российких горнорудных компаний
+          li.about__feature
+            +icon("icon-hand", 69, 40)
+            p.about__feature-text Стандарты, известные как Russian Cut позоляют показать достичь нужных пропорций и&nbsp;полного отражения лучей света

@@ -1,0 +1,141 @@
+mixin header(headerMods, currentUrl)
+  -
+    const headerLinks = [
+      {
+        href: "#",
+        text: "Бриллианты"
+      },
+      {
+        href: "#",
+        text: "Наборы бриллиантов"
+      },
+      {
+        href: "#",
+        text: "Украшения"
+      },
+      {
+        href: "#",
+        text: "О нас"
+      },
+    ]
+
+  -
+    const catalogLinks = [
+      {
+        href: "#",
+        text: "Бриллианты"
+      },
+      {
+        href: "#",
+        text: "Наборы бриллиантов"
+      },
+      {
+        href: "#",
+        text: "Серьги"
+      },
+      {
+        href: "#",
+        text: "Кольца"
+      },
+      {
+        href: "#",
+        text: "Подвески"
+      },
+      {
+        href: "#",
+        text: "Браслеты"
+      },
+    ]
+
+  -
+    const aboutLinks = [
+      {
+        href: "#",
+        text: "О нас"
+      },
+      {
+        href: "#",
+        text: "Оплата и доставка"
+      },
+      {
+        href: "#",
+        text: "Гарантии"
+      },
+      {
+        href: "#",
+        text: "Сертификация"
+      },
+      {
+        href: "#",
+        text: "Контакты"
+      },
+    ]
+
+  header.header(class=headerMods)
+    .header__wrapper
+      .container
+        if(currentUrl === "index.html")
+          span.header__logo
+            +icon("icon-logo", 68, 22)
+        else
+          a.header__logo(href="index.html", aria-label="Переход на главную")
+            +icon("icon-logo", 68, 22)
+        nav.main-nav
+          button.main-nav__toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
+            span.main-nav__toggle-open
+              +icon("icon-burger", 26, 15)
+            span.main-nav__toggle-close
+              +icon("icon-burger-close", 26, 15)
+          .main-nav__wrapper
+            ul.main-nav__list
+              li.main-nav__item
+                a.main-nav__link(href=(currentUrl === "diamond") ? false : "catalog-diamonds.html", class=(currentUrl === "diamond") ? "is-active" : false)!="Бриллианты"
+              li.main-nav__item
+                a.main-nav__link(href=(currentUrl === "catalog-sets") ? false : "catalog-sets.html", class=(currentUrl === "catalog-sets" || currentUrl === "set.html") ? "is-active" : false)!="Наборы бриллиантов"
+
+              li.main-nav__item.main-nav__item--list(class=(currentUrl === "jewelry") ? "main-nav__item--active" : false)
+                .main-nav__link-container
+                  span.main-nav__link!="Украшения"
+                  span.main-nav__arrow-down.arrow-down
+                .main-nav__sublist-wrapper
+                  ul.main-nav__sublist
+                    each item in menu
+                      li.main-nav__subitem
+                        +good(item).main-nav__sublink
+              li.main-nav__item
+                a.main-nav__link(href=(currentUrl === "about") ? false : "about.html", class=(currentUrl === "about") ? "is-active" : false)!="О нас"
+              //- each link in headerLinks
+                //- - const activeState = currentUrl === link.href
+                if(activeState)
+                  li.main-nav__item.is-active
+                    span.main-nav__link=link.text
+                else
+                  li.main-nav__item
+                    a.main-nav__link(href=link.href)=link.text
+            ul.main-nav__mobile-list.main-nav__mobile-list--catalog
+              each link in catalogLinks
+                li.main-nav__mobile-item.main-nav__mobile-item--catalog
+                  a.main-nav__mobile-link.main-nav__mobile-link--catalog(href=link.href)!=link.text
+                    span
+            ul.main-nav__mobile-list.main-nav__mobile-list--about
+              each link in aboutLinks
+                li.main-nav__mobile-item.main-nav__mobile-item--about
+                  a.main-nav__mobile-link.main-nav__mobile-link--about(href=link.href)=link.text
+                    span
+        nav.sub-nav
+          .sub-nav__contacts
+            a.sub-nav__whatsapp(href="whatsapp://send?phone=74952405553" aria-label="Перейти в WhatsApp")
+              +icon("icon-phone", 23, 24)
+            a.sub-nav__tel(href="tel:+74952405553" aria-label="Позвонить на телефон компании")
+              span!="+7 495 240-55-53"
+          ul.sub-nav__list
+            li.sub-nav__item
+              a.sub-nav__link(href="#" aria-label="Перейти в избранное", class=(currentUrl === 'favorites.html') ? 'is-active' : false)
+                +icon("icon-heart", 21, 14)
+                span.sub-nav__cart-counter!="2"
+            li.sub-nav__item
+              a.sub-nav__link(href="#" aria-label="Перейти в корзину", class=(currentUrl === 'basket.html') ? 'is-active' : false)
+                +icon("icon-cart", 14, 20)
+            li.sub-nav__item
+              a.sub-nav__link(href="#" aria-label="Перейти в личный кабинет" data-open-modal="authorize", class=(currentUrl === 'personal-account-orders.html') ? 'is-active' : false)
+                +icon("icon-user", 14, 22)

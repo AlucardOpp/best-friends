@@ -1,0 +1,128 @@
+.range-slider {
+  height: 19px;
+  // margin-left: 13px;
+  // margin-right: 13px;
+  margin-bottom: 18px;
+  background-color: transparent;
+  background-image: linear-gradient(to top, transparent 0, transparent 9px, $color-silver 9px, $color-silver 10px, transparent 10px, transparent 100%);
+  border: none;
+  box-shadow: none;
+
+  @include vp-1023 {
+    height: 33px;
+    background-image: linear-gradient(to top, transparent 0, transparent 16px, $color-silver 16px, $color-silver 17px, transparent 17px, transparent 100%);
+  }
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: $color-silver;
+  }
+
+  .noUi-base {
+    width: calc(100% - 26px);
+    margin-left: 13px;
+    margin-right: 13px;
+
+    @include vp-1023 {
+      width: calc(100% - 22px);
+      margin-left: 11px;
+      margin-right: 11px;
+    }
+  }
+
+  .noUi-tooltip {
+    bottom: auto;
+    top: calc(100% + 5px);
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 109.5%;
+  }
+
+  .noUi-handle {
+    width: 28px;
+    height: 19px;
+    border: 1px solid $color-default-black;
+    background-color: $color-default-white;
+    box-shadow: none;
+    border-radius: 26px;
+    top: 0;
+    right: -15px;
+
+    @include vp-1023 {
+      width: 22px;
+      height: 33px;
+      right: -11px;
+    }
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
+  .noUi-connects {
+    border-radius: 0;
+  }
+
+  .noUi-connect {
+    background-color: transparent;
+    background-image: linear-gradient(to top, transparent 0, transparent 9px, $color-default-black 9px, $color-default-black 10px, transparent 10px, transparent 100%);
+
+    @include vp-1023 {
+      background-image: linear-gradient(to top, transparent 0, transparent 16px, $color-default-black 16px, $color-default-black 17px, transparent 17px, transparent 100%);
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      width: 100%;
+      background-color: $color-default-black;
+    }
+  }
+
+  .noUi-pips {
+    width: auto;
+    // left: 0;
+    // right: 0;
+    left: 19px;
+    right: 19px;
+    height: 18px;
+    padding-top: 5px;
+    padding-bottom: 0;
+  }
+
+  .noUi-marker {
+    display: none;
+  }
+
+  .noUi-value-large,
+  .noUi-value-sub {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 13px;
+    color: rgba($color-default-black, 0.3);
+    transform: translateX(-50%);
+    transition: color $trans-default;
+
+    &.active {
+      color: $color-default-black;
+    }
+  }
+
+  // .noUi-horizontal .noUi-handle {
+
+  // }
+
+  &__input {
+    display: none;
+  }
+}

@@ -1,0 +1,40 @@
+mixin jewelry-filters()
+  .jewelry-filters
+    .jewelry-filters__wrapper
+      .container
+        h1.jewelry-filters__title.title-medium!="Серьги"
+        form(action="get")
+          .jewelry-filters__filters
+            .jewelry-filters__selects
+              +custom-select({optionsList: [
+                {text: "Коллекция", value: "collection", isActive: true},
+                {text: "Всё", value: "all"},
+                {text: "Austerio", value: "collection-austerio"},
+                {text: "Biena", value: "collection-biena"}]})(data-select, data-validate-type="select", data-name="collection", data-id="collection").jewelry-filters__select.jewelry-filters__select--collection.custom-select
+              +custom-select({optionsList: [
+                {text: "Материалы", value: "material", isActive: true},
+                {text: "Всё", value: "all"},
+                {text: "Жёлтое золото", value: "material-yellow-gold"},
+                {text: "Белое золото", value: "material-white-gold"},
+                {text: "Красное золото", value: "material-red-gold"},
+                {text: "Зелёное золото", value: "material-green-gold"}]})(data-select, data-validate-type="select" data-name="material" data-id="material").jewelry-filters__select.jewelry-filters__select--material.custom-select
+              button.jewelry-filters__button(type="button" aria-label="Открыть фильтры")
+                +icon("icon-filters", 20, 21)
+              .jewelry-filters__selects-wrapper
+                .container
+                  .jewelry-filters__filter
+                    span.jewelry-filters__filter-title!="Материал"
+                    .jewelry-filters__buttons(data-filter="material")
+                      button.btn.jewelry-filters__filter-btn.is-active(type="button" aria-label="Выбрать пункт" data-select-value="all")!="Всё"
+                      button.btn.jewelry-filters__filter-btn(type="button" aria-label="Выбрать пункт" data-select-value="material-yellow-gold")!="Жёлтое золото"
+                      button.btn.jewelry-filters__filter-btn(type="button" aria-label="Выбрать пункт" data-select-value="material-white-gold")!="Белое золото"
+                      button.btn.jewelry-filters__filter-btn(type="button" aria-label="Выбрать пункт" data-select-value="material-red-gold")!="Красное золото"
+                      button.btn.jewelry-filters__filter-btn(type="button" aria-label="Выбрать пункт" data-select-value="material-green-gold")!="Зелёное золото"
+                  .jewelry-filters__filter
+                    span.jewelry-filters__filter-title!="Коллекция"
+                    .jewelry-filters__buttons(data-filter="collection")
+                      button.btn.jewelry-filters__filter-btn.is-active(type="button" aria-label="Выбрать пункт" data-select-value="all")!="Всё"
+                      button.btn.jewelry-filters__filter-btn(type="button" aria-label="Выбрать пункт" data-select-value="collection-austerio")!="Austerio"
+                      button.btn.jewelry-filters__filter-btn(type="button" aria-label="Выбрать пункт" data-select-value="collection-biena")!="Biena"
+                  button.jewelry-filters__apply(type="button" aria-label="Применить фильтры")!="Применить"
+            +custom-select({optionsList: [{text: " Сначала подешевле", value: "price-cheaper", isActive: true}, {text: "Сначала подороже", value: "price-expensive"}]})(data-select, data-validate-type="select" data-name="price" data-id="price").jewelry-filters__select.jewelry-filters__select--price.custom-select

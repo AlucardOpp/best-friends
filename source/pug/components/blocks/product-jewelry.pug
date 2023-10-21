@@ -1,0 +1,48 @@
+mixin product-jewelry
+  .product
+    .product__imgs
+      .product__img-main(data-mouse-zoom)
+        .product__img-inner(data-inner-zoom)
+          +picture('content/jewelry', 'jewelry-img', 'png', 550, 437, 'Austerio серьги')
+      .product__img
+        +picture('content/jewelry', 'jewelry-product', 'jpg', 907, 892, 'Austerio серьги')
+    .product__content
+      .product__info
+        +breadcrumbs(['Украшения', 'Кольца']).product__breadcrumbs
+        h1.product__title.title-medium Austerio серьги
+        .product__descr-wrap
+          p.product__descr Симметрия и полировка обеспечивали великолепную игру света.
+          p.product__descr Коллекция: Юлия Овчаренко
+        +custom-select({optionsList: [{text: "Белое золото", img: true, value: "white", isActive: true}, {text: "Желтое золото", img: true,value: "yellow"}]})(data-select, data-validate-type="select", data-name="price", data-id="price").custom-select.product__select
+        +custom-select({optionsList: [{text: "Размер: 16 мм", value: "price-cheaper", isActive: true}, {text: "Сначала подороже", value: "price-expensive"}]})(data-select, data-validate-type="select", data-name="price", data-id="price").custom-select.product__select
+        button(type="button", data-open-modal="sizes").product__size-btn Таблица размеров
+          +icon("icon-arrowhead-right", 6, 11).product__size-btn-icon
+      .product__btns
+        a(href="#").product__cart.btn 620 000 ₽
+        +btn-favorite().product__favorite
+      .product__features
+        p.product__feature-title.title-smallest Доставим или покажем в салоне
+        .product__feature-wrap
+          .product__feature
+            .product__feature-icon
+              +icon("icon-stars-white", 57, 40)
+            p.product__feature-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте.
+          .product__feature
+            .product__feature-icon
+              +icon("icon-hand", 69, 40)
+            p.product__feature-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте. Только правильная огранка может полностью раскрыть красоту бриллианта.
+      .product__features
+        p.product__feature-title.title-smallest Красиво упакуем
+        .product__feature-wrap
+          .product__feature
+            .product__feature-icon
+              +icon("icon-proportions", 57, 40)
+            p.product__feature-text Пропорции, симметрия и полировка обеспечивали великолепную игру света, возможную только в бриллианте.
+          .product__feature
+            .product__feature-icon
+            p.product__feature-text Только правильная огранка может полностью раскрыть красоту бриллианта.
+      div(data-accordion="parent")
+        +accordion({text: "Как ухаживать?"}).product__accordion
+          p.product__accordion-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut fugiat provident perspiciatis quia, earum harum expedita sint rem eaque.
+        +accordion({text: "А можно вернуть?"}).product__accordion
+          p.product__accordion-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut fugiat provident perspiciatis quia, earum harum expedita sint rem eaque.

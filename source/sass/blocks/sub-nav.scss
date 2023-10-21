@@ -1,0 +1,141 @@
+.sub-nav {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 24px;
+
+    @include vp-1040 {
+      margin-right: 16px;
+    }
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  &__whatsapp {
+    margin-right: 6px;
+    transition: opacity $trans-default;
+    margin-bottom: -6px;
+
+    @include hover {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__tel {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 109.5%;
+    color: $color-default-black;
+    transition: opacity $trans-default;
+
+    @include hover {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-of-type) {
+      margin-right: 11px;
+
+      @include vp-1023 {
+        margin-right: 9px;
+      }
+    }
+  }
+
+  &__link {
+    width: 44px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background-color: $color-transparent;
+    border: 1px solid $color-default-black;
+    position: relative;
+    transition: background-color $trans-default;
+    -webkit-tap-highlight-color: $color-transparent;
+
+    @include vp-1023 {
+      width: 39px;
+      height: 30px;
+    }
+
+    @include hover {
+      &:hover {
+        background-color: $color-default-black;
+
+        & .sub-nav__cart-counter {
+          border-color: $color-default-white;
+        }
+
+        & svg {
+          fill: $color-default-black;
+          stroke: $color-default-white;
+        }
+      }
+    }
+
+    &.is-active {
+      background-color: $color-default-black;
+
+      & svg {
+        fill: $color-default-black;
+        stroke: $color-default-white;
+      }
+    }
+
+    & svg {
+      transition: fill $trans-default, stroke $trans-default;
+      // fill: $color-solitude;
+      fill: $color-default-white;
+      stroke: $color-default-black;
+
+      @include vp-1023 {
+        fill: $color-default-white;
+      }
+    }
+  }
+
+  &__cart-counter {
+    min-width: 17px;
+    min-height: 18px;
+    padding: 2px 4px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    transition: border $trans-default;
+    border: 1px solid $color-default-black;
+    background-color: $color-default-black;
+    color: $color-default-white;
+    border-radius: 22px;
+    position: absolute;
+    top: -1px;
+    right: -8px;
+
+    @include vp-1023 {
+      font-size: 11px;
+      min-width: 15px;
+      min-height: 16px;
+      border-radius: 20px;
+    }
+  }
+}

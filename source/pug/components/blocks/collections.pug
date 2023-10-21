@@ -1,0 +1,7 @@
+mixin collections(data)
+  section.collections
+    h2.visually-hidden!="Коллекции"
+    ul.collections__list
+      each item in data
+        li.collections__item
+          +collection(item)

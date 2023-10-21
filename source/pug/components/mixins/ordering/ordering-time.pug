@@ -1,0 +1,19 @@
+mixin ordering-time()
+  section.ordering__time
+    h3.title-smallest Когда доставить
+    .ordering__time-wrap
+      +custom-select({
+        optionsList: [
+          {text: "22 апреля", value: "22.04", isActive: true},
+          {text: "23 апреля", value: "23.04"},
+          {text: "24 апреля", value: "24.04"},
+        ],
+        })(data-select, data-name="delivery-day", data-id="delivery-day").custom-select.custom-select--input-size
+      +custom-select({
+        optionsList: [
+          {text: "с 9:00 до 20:00", value: "9-20", isActive: true},
+          {text: "с 9:00 до 20:00", value: "9-20"},
+          {text: "с 9:00 до 20:00", value: "9-20"},
+        ],
+        })(data-select, data-name="delivery-hours", data-id="delivery-hours").custom-select.custom-select--input-size
+    span.ordering__time-info Мы позвоним за час

@@ -1,0 +1,71 @@
+.accordion {
+  &__btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 13px 20px;
+    border: none;
+    background-color: transparent;
+    line-height: 77.5%;
+    transition: background-color $trans-default;
+    cursor: pointer;
+    color: $color-default-black;
+
+    @include vp-1023 {
+      padding: 14px 16px;
+    }
+
+    @include hover {
+      &:hover {
+        background-color: $color-solitude;
+      }
+    }
+  }
+
+  &__icon {
+    width: 22px;
+    height: 17px;
+    border: 1px solid $color-default-black;
+    border-radius: 14px;
+    margin-right: 12px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 7px;
+      height: 1px;
+      background-color: $color-default-black;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      width: 1px;
+      height: 7px;
+      transform-origin: center center;
+      transform: translate(-50%, -50%);
+      transition: transform $trans-default;
+
+      .is-active & {
+        transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+      }
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    transition: max-height $trans-default;
+    overflow: hidden;
+  }
+
+  &__inner {
+    padding: 2px 20px 14px;
+
+    @include vp-1023 {
+      padding: 2px 16px 14px;
+    }
+  }
+}

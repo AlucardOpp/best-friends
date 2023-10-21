@@ -1,0 +1,10 @@
+mixin kaleido-block(data)
+  section.kaleido&attributes(attributes)
+    .kaleido__bg(data-kaleido)
+    .kaleido__content
+      +icon("icon-stars", 57, 40)
+      h2.title-large!= data.title
+      if data.text
+        p.kaleido__text!= data.text
+      if block
+        block

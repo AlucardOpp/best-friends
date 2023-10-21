@@ -1,0 +1,95 @@
+// Vendor
+// ---------------------------------
+
+@import "vendor/normalize";
+// Swiper 7.4.1
+@import "vendor/swiper";
+@import "vendor/nouislider";
+
+// Global
+// ---------------------------------
+
+@import "variables";
+@import "mixins";
+@import "functions";
+@import "global/fonts";
+@import "global/reboot";
+@import "global/utils";
+@import "global/container";
+
+// Blocks
+// ---------------------------------
+
+@import "blocks/header";
+@import "blocks/main-nav";
+@import "blocks/footer";
+@import "blocks/modal";
+@import "blocks/btn";
+@import "blocks/custom-input";
+@import "blocks/custom-toggle";
+@import "blocks/custom-select";
+@import "blocks/titles";
+// @import "blocks/form";
+@import "blocks/sequence";
+@import "blocks/sub-nav";
+@import "blocks/intro";
+@import "blocks/about";
+@import "blocks/modal-authorize";
+@import "blocks/modal-cancel-order";
+@import "blocks/arrow-down";
+@import "blocks/footer-form";
+@import "blocks/sub-nav";
+@import "blocks/intro";
+@import "blocks/goods";
+@import "blocks/good";
+@import "blocks/collections";
+@import "blocks/collection";
+@import "blocks/jewelry-filters";
+@import "blocks/range-slider";
+@import "blocks/card-block";
+@import "blocks/filters";
+@import "blocks/btn-favorite";
+@import "blocks/catalog-goods";
+@import "blocks/kaleidoscope";
+@import "blocks/how-we-works";
+@import "blocks/card-item";
+@import "blocks/basket-page";
+@import "blocks/slider-products";
+@import "blocks/sets";
+@import "blocks/set";
+@import "blocks/advantages";
+@import "blocks/total-card";
+@import "blocks/ordering";
+@import "blocks/favorites-page";
+@import "blocks/orders";
+@import "blocks/basket-success";
+@import "blocks/working";
+@import "blocks/kaleido";
+@import "blocks/breadcrumbs";
+@import "blocks/product";
+@import "blocks/accordion";
+@import "blocks/modal-sizes";
+@import "blocks/ring-size-slider";
+@import "blocks/data-tabs";
+@import "blocks/sets";
+
+// ---------------------------------
+
+// ❗❗❗ запрещено использовать изображения в css, касается как jpg \ png, так и svg
+
+// ❗ обязательно используйте @media для отключения ховеров на тач устройствах
+// но не используем для текстовых полей ( input, textarea )
+/* @media (hover: hover), screen and (min-width: 0\0) {
+  &:hover,
+  &:focus {
+    color: $color-default-white;
+  }
+} */
+
+// адаптив пишем внутри каждого класса (смотрим container.scss)
+
+// для фикса проблем с vh на iOS в сборке подключен скрипт
+// используя vh на проекте задавайте их также как в примере в utils.scss
+
+// для любых transition обязательно указывайте transition-property
+// transition: $trans-default ❌ ---> transition: color $trans-default ✅

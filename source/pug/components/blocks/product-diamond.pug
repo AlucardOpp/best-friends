@@ -1,0 +1,48 @@
+mixin product-diamond
+  .product
+    .product__imgs
+      +sequence().product__img-sequence
+      +ring-size-slider().desktop-only
+
+    .product__content
+      .product__info
+        +breadcrumbs(['Украшения', 'Бриллиант']).product__breadcrumbs
+        h1.product__title.title-medium Бриллиант
+        p.product__code Артикул: 35V2 G344
+        .product__spec
+          p.product__spec-item
+            span.product__spec-title Размер
+            span.product__spec-text 3.5 карата
+          p.product__spec-item
+            span.product__spec-title Цвет
+            span.product__spec-text VVS2
+          p.product__spec-item
+            span.product__spec-title Чистота
+            span.product__spec-text G
+
+      .product__btns
+        a(href="#").product__cart.btn 620 000 ₽
+        +btn-favorite().product__favorite
+      .product__features
+        p.product__feature-title.title-smallest Красиво упакуем<br/>и доставим
+        .product__feature-wrap
+          .product__feature
+            .product__feature-icon
+              +icon("icon-stars-white", 57, 40)
+            p.product__feature-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте.
+          .product__feature
+            .product__feature-icon
+              +icon("icon-hand", 69, 40)
+            p.product__feature-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте. Только правильная огранка может полностью раскрыть красоту бриллианта.
+      .product__card
+        p.product__card-title Цвет бриллианта
+        +color-block(false)
+      .product__card
+        p.product__card-title Чистота бриллианта
+        +purity-block(false)
+      div(data-accordion="parent")
+        +accordion({text: "Рекомендации по уходу"}).product__accordion
+          p.product__accordion-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut fugiat provident perspiciatis quia, earum harum expedita sint rem eaque.
+        +accordion({text: "А можно вернуть?"}).product__accordion
+          p.product__accordion-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut fugiat provident perspiciatis quia, earum harum expedita sint rem eaque.
+      +ring-size-slider().mobile-only

@@ -1,0 +1,17 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Избранное — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = "header--grey-bd"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "favorites.html"
+
+block main
+  main
+    +favorites-page(favorites)
+    +slider-products(products)
+
+block modals

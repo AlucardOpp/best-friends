@@ -1,0 +1,66 @@
+.kaleido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+
+  .title-large {
+    text-align: center;
+    line-height: 1;
+    margin-top: 40px;
+
+    @include vp-767 {
+      margin-top: 10px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    background-color: $color-solitude;
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 952px;
+    padding: 0 16px;
+  }
+
+  &__text {
+    margin: 0;
+    max-width: 50%;
+    margin-top: 16px;
+
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include vp-767 {
+      max-width: 90%;
+      margin-top: 8px;
+
+      line-height: 119%;
+    }
+  }
+
+  &--border-bottom {
+    border-bottom: 1px solid $color-default-white;
+  }
+}

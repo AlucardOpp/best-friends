@@ -1,0 +1,18 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Наборы бриллиантов — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = "header--grey-bd"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "catalog-sets"
+
+block main
+  main
+    +sets(sets)
+    +advantages
+    +slider-products(products)
+
+block modals

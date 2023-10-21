@@ -1,0 +1,21 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Бриллианты — Best Friends"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = "header--grey-bd"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "diamond"
+
+
+block main
+  main
+    +diamonds-filters()
+    +catalog-goods(AllDiamonds).goods--diamonds
+    +slider-products(products)
+
+block modals
+  +modal("modal--sizes")(data-modal="sizes")
+    +modal-sizes()

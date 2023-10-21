@@ -1,0 +1,71 @@
+.slider-products {
+  overflow: hidden;
+  border-top: 1px solid $color-default-black;
+
+  & > .container {
+    padding: 0;
+  }
+
+  &__container {
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @include vp-1023 {
+      padding: 9px 18px;
+    }
+
+    @include vp-767 {
+      padding: 9px 16px;
+    }
+  }
+
+  &__slide {
+    width: auto;
+    height: auto;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  &__navigation-button {
+    -webkit-tap-highlight-color: $color-transparent;
+    position: static;
+    margin-top: 0;
+    width: 73px;
+    height: 47px;
+    border-radius: 26px;
+    background-color: $color-solitude;
+    transition: opacity $trans-default, background-color $trans-default;
+    outline: none;
+    transform: translateZ(0);
+
+    & svg {
+      transform: translateZ(0);
+    }
+
+    &.swiper-button-disabled {
+      background-color: $color-transparent;
+      opacity: 1;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    @include hover {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

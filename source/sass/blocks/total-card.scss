@@ -1,0 +1,152 @@
+.total-card {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--headerHeight));
+  min-height: calc(100 * var(--vh, 1vh) - var(--headerHeight));
+  transition: min-height $trans-default;
+
+  .header-top & {
+    min-height: calc(100vh);
+    min-height: calc(100 * var(--vh, 1vh));
+  }
+
+  @include vp-767 {
+    min-height: auto;
+    z-index: 1;
+
+    .header-top & {
+      min-height: auto;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 30px 16px 32px;
+
+    border-bottom: 1px solid $color-solitude;
+
+    @include vp-1023 {
+      padding: 16px 18px 16px 18px;
+    }
+
+    @include vp-767 {
+      padding: 16px 16px 13px;
+      justify-content: flex-start;
+    }
+  }
+
+  &__name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+    @include vp-767 {
+      min-width: 46%;
+      padding-right: 10px;
+    }
+  }
+
+  &__value {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+  }
+
+  &__block-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    margin-top: auto;
+
+    border-top: 1px solid $color-solitude;
+
+    @include vp-1023 {
+      padding: 16px;
+      z-index: 3;
+    }
+
+    @include vp-767 {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      padding: 13px 16px;
+
+      border-color: $color-default-black;
+      background-color: $color-default-white;
+    }
+  }
+
+  &__price-info {
+    display: flex;
+    flex-direction: column;
+
+    @include vp-767 {
+      margin-left: 16px;
+    }
+
+    @include vp-359 {
+      margin-left: auto;
+    }
+  }
+
+  &__price-name {
+    margin-bottom: 8px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+    @include vp-767 {
+      margin-bottom: 5px;
+
+      font-size: 15px;
+    }
+  }
+
+  &__price-value {
+    font-family: $ff-tt-travels-next;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+
+    @include vp-1023 {
+      font-size: 15px;
+    }
+  }
+
+  &__sumbit {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: 10px;
+
+    @include vp-1023 {
+      font-size: 14px;
+    }
+
+    @include vp-767 {
+      min-width: 192px;
+      margin-left: 0;
+      font-size: 17px;
+    }
+
+    @include vp-359 {
+      min-width: auto;
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mixin kaleidoscope(data)
+  .kaleidoscope&attributes(attributes)
+    .kaleidoscope__bg
+      +picture("content", "pattern-bg", "jpg", 1360, 800, "Узоры")
+    .kaleidoscope__info-content
+      .kaleidoscope__stars
+        +icon("icon-stars", 56, 40)
+      h2.kaleidoscope__title.title-large!=data.title
+      p.kaleidoscope__info-text!=(data.description) ? data.description : null

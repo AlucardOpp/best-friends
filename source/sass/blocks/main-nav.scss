@@ -1,0 +1,307 @@
+.main-nav {
+  @include vp-1023 {
+    order: 2;
+    margin-left: 12px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    max-width: 554px;
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    -webkit-tap-highlight-color: $color-transparent;
+
+    &--list {
+      cursor: pointer;
+      padding: 13px 18px;
+      transition: background-color $trans-default;
+      color: $color-default-black;
+      background-color: $color-transparent;
+      border-color: $color-default-black;
+      border-radius: 35px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+
+      @include hover {
+        &:hover {
+          background-color: $color-default-black;
+          color: $color-default-white;
+          border-color: $color-default-white;
+
+          & .main-nav__arrow-down {
+            border-color: $color-default-white !important;
+          }
+
+          & .main-nav__arrow-down::after {
+            border-color: $color-default-white;
+          }
+
+          & .main-nav__sublist-wrapper {
+            clip-path: inset(0 0 0 0);
+            pointer-events: all;
+          }
+        }
+      }
+
+      &.is-active {
+        background-color: $color-default-black;
+        color: $color-default-white;
+        border-color: $color-default-white;
+
+        & .main-nav__arrow-down {
+          border-color: $color-default-white !important;
+        }
+
+        & .main-nav__arrow-down::after {
+          border-color: $color-default-white;
+        }
+      }
+
+      & .main-nav__link {
+        padding: 0;
+        color: inherit;
+
+        @include hover {
+          &:hover {
+            background-color: inherit;
+            color: inherit;
+            border-color: inherit;
+          }
+        }
+
+        &.is-active {
+          background-color: inherit;
+          color: inherit;
+          border-color: inherit;
+        }
+      }
+    }
+
+    &--active {
+      background-color: $color-default-black;
+      color: $color-default-white;
+      border-color: $color-default-white;
+
+      .main-nav__arrow-down {
+        border-color: $color-default-white !important;
+      }
+
+      .main-nav__arrow-down::after {
+        border-color: $color-default-white;
+      }
+    }
+  }
+
+  &__sublist-wrapper {
+    position: absolute;
+    z-index: 1;
+    height: 406px;
+    width: 100%;
+    left: 0;
+    top: var(--headerHeight);
+    border-bottom: 1px solid $color-default-black;
+    filter: drop-shadow(0 44px 72px rgba($color-default-black, 0.2));
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path $trans-default;
+    pointer-events: none;
+  }
+
+  &__sublist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: 405px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__link {
+    padding: 13px 18px;
+    transition: color $trans-default, background-color $trans-default;
+    color: $color-default-black;
+    background-color: $color-transparent;
+    border-color: $color-default-black;
+    border-radius: 35px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+
+    @include hover {
+      &:hover {
+        background-color: $color-default-black;
+        color: $color-default-white;
+        border-color: $color-default-white;
+      }
+    }
+
+    &.is-active {
+      background-color: $color-default-black;
+      color: $color-default-white;
+      border-color: $color-default-white;
+    }
+  }
+
+  &__link-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-color: inherit;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      height: 10px;
+      width: calc(100% + 36px);
+      background-color: $color-transparent;
+      bottom: -23px;
+      left: -18px;
+    }
+  }
+
+  &__arrow-down {
+    margin-left: 8px;
+  }
+
+  &__toggle {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    background-color: $color-transparent;
+    border: none;
+    padding: 0;
+    margin-top: 4px;
+    z-index: 1;
+    -webkit-tap-highlight-color: $color-transparent;
+
+    &-close,
+    &-open {
+      transition: clip-path $trans-default;
+      pointer-events: none;
+      display: block;
+    }
+
+
+    &-open {
+      clip-path: inset(0 0 0 0);
+    }
+
+    &-close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      clip-path: inset(0 100% 100% 100%);
+    }
+
+    @include expand-interactive-area(160%, 180%);
+
+    @include vp-1023 {
+      display: block;
+    }
+  }
+
+  &.is-active {
+    & .main-nav__toggle-open {
+      clip-path: inset(0 100% 100% 100%);
+    }
+
+    & .main-nav__toggle-close {
+      clip-path: inset(0 0 0 0);
+    }
+
+    & .main-nav__wrapper {
+      clip-path: inset(0 0 0 0);
+      pointer-events: auto;
+    }
+  }
+
+  &__wrapper {
+    @include vp-1023 {
+      pointer-events: none;
+      position: absolute;
+      top: 52px;
+      left: 0;
+      transition: clip-path $trans-default;
+      clip-path: inset(0 0 100% 0);
+      background-color: $color-default-white;
+      width: 100%;
+      height: calc(100vh - 52px);
+      padding: 0 16px;
+      overflow-y: auto;
+    }
+  }
+
+  &__mobile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+
+    @include vp-1023 {
+      display: block;
+    }
+
+    &--catalog {
+      border-bottom: 1px solid $color-solitude;
+      margin-bottom: 2px;
+    }
+  }
+
+  &__mobile-item {
+    display: flex;
+  }
+
+  &__mobile-link {
+    color: $color-default-black;
+    width: 100%;
+    padding: 11px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: opacity $trans-default;
+
+    &--catalog {
+      font-family: $ff-tt-travels-next;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 99%;
+      letter-spacing: -0.04em;
+    }
+
+    &--about {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 120%;
+      color: $color-default-black;
+    }
+
+    & span {
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid $color-default-black;
+      border-right: 1px solid $color-default-black;
+      transform: rotate(45deg);
+    }
+
+    @include hover {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

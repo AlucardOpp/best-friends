@@ -1,0 +1,21 @@
+mixin ring-size-slider
+  .ring-size-slider&attributes(attributes)
+    p.ring-size-slider__title Размер
+    .ring-size-slider__slider
+      .ring-size-slider__slider-line
+      p.ring-size-slider__slider-info
+        span.ring-size-slider__number 3.5
+        span.ring-size-slider__slider-text Карат
+    .ring-size-slider__img
+      .ring-size-slider__img-hand
+        img(src="img/svg/hand-2.svg", width="856", height="600", alt="Размер").desktop-only
+        img(src="img/svg/hand-3.svg", width="856", height="600", alt="Размер").mobile-only
+        .ring-size-slider__img-ring
+          .ring-size-slider__img-ring-inner
+            img(src="img/svg/diamond.svg", width="41", height="33", alt="Размер").desktop-only
+            img(src="img/svg/diamond-2.svg", width="41", height="33", alt="Размер").mobile-only
+
+    .ring-size-slider__info
+      .ring-size-slider__info-img
+        +icon("icon-stars-2", 57, 40)
+      p.ring-size-slider__info-text Пропорции, симметрия и&nbsp;полировка обеспечивали великолепную игру света, возможную только в бриллианте.
